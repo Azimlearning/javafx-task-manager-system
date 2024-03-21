@@ -33,7 +33,7 @@ public class Controller implements Initializable {
     public Button btnUpdate;
 
     @FXML
-    public Button btnClasses;
+    public Button btnTasks;
 
     //my bad - the freaking mouse event
     @FXML
@@ -42,8 +42,8 @@ public class Controller implements Initializable {
             loadStage("Dashboard.fxml");
         } else if (mouseEvent.getSource() == btnStudents) {
             loadStage("Students.fxml");
-        } else if (mouseEvent.getSource() == btn_Timetable) {
-            loadStage("/home/fxml/Timetable.fxml");
+        } else if (mouseEvent.getSource() == btnTasks) {
+            loadStage("TaskMaker.fxml");
         }
     }//Dashboard.fxml
 
