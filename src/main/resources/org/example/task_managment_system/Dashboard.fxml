@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.DashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" style="-fx-background-color: #7549B1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.DashboardController">
    <children>
-      <Pane layoutY="-2.0" prefHeight="139.0" prefWidth="950.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="-2.0">
+      <Pane layoutY="-2.0" prefHeight="139.0" prefWidth="950.0" style="-fx-background-color: #461D7C;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="-2.0">
          <children>
             <Label layoutX="73.0" layoutY="30.0" text="TaskBoard" textFill="WHITE">
                <font>
@@ -39,7 +39,7 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Pane prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: #3A84C3; -fx-background-radius: 1em;">
+            <Pane prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: #00838F; -fx-background-radius: 1em;">
                <children>
                   <Label alignment="CENTER" layoutX="74.0" layoutY="69.0" text="Total Task" textFill="WHITE">
                      <font>
@@ -53,7 +53,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: #EEAC4C; -fx-background-radius: 1em;" GridPane.columnIndex="1">
+            <Pane prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: FDD023; -fx-background-radius: 1em;" GridPane.columnIndex="1">
                <children>
                   <Label layoutX="54.0" layoutY="69.0" text="Completed Task" textFill="WHITE">
                      <font>
