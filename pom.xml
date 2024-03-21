@@ -44,7 +44,17 @@
       <artifactId>junit-jupiter-engine</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
-    </dependency>  </dependencies>
+    </dependency>
+    <dependency>
+      <groupId>com.calendarfx</groupId>
+      <artifactId>view</artifactId>
+      <version>11.8.3</version>
+    </dependency>
+
+  </dependencies>
+
+
+
 
   <build>
     <plugins>
@@ -80,3 +90,4 @@
     </plugins>
   </build>
 </project>
+

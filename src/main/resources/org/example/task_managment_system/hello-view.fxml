@@ -37,11 +37,11 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
       <children>
-        <Button fx:id="btnDashboard" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="" text="Dashboard">
+        <Button fx:id="btnDashboard" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="" text="Task Overview">
           <graphic>
           </graphic>
         </Button>
-        <Button fx:id="btnStudents" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="" text="Students" GridPane.columnIndex="1">
+        <Button fx:id="btnStudents" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" stylesheets="" text="Task details" GridPane.columnIndex="1">
           <graphic>
           </graphic>
         </Button>

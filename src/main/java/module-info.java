@@ -7,4 +7,5 @@ module org.example.task_managment_system {
 
     opens org.example.task_managment_system to javafx.fxml;
     exports org.example.task_managment_system;
+
 }

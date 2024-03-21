@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -12,19 +13,19 @@
    <children>
       <Pane prefHeight="139.0" prefWidth="1102.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="73.0" layoutY="30.0" text="Students" textFill="WHITE">
+            <Label layoutX="73.0" layoutY="30.0" text="TASK" textFill="WHITE">
                <font>
                   <Font size="48.0" />
                </font>
             </Label>
-            <Label layoutX="79.0" layoutY="91.0" text="School Mangement " textFill="WHITE">
+            <Label layoutX="79.0" layoutY="91.0" text="Task Mangement " textFill="WHITE">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <TableView fx:id="tbData" layoutX="20.0" layoutY="192.0" prefHeight="349.0" prefWidth="1066.0" stylesheets="" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="192.0">
+      <TableView fx:id="tbData" layoutX="20.0" layoutY="192.0" onSort="#submit" prefHeight="349.0" prefWidth="1066.0" stylesheets="" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="192.0">
         <columns>
           <TableColumn fx:id="studentId" prefWidth="75.0" text="StudentId" />
           <TableColumn fx:id="firstName" prefWidth="75.0" text="First Name" />
@@ -36,8 +37,11 @@
       </TableView>
       <Pane layoutX="20.0" layoutY="159.0" prefHeight="33.0" prefWidth="322.0">
          <children>
-            <TextField prefHeight="25.0" prefWidth="322.0" style="-fx-border-color: #2D75E8;" />
+            <TextField fx:id="btntask" onAction="#submit" prefHeight="25.0" prefWidth="322.0" promptText="Enter Task" style="-fx-border-color: #2D75E8;" />
          </children>
       </Pane>
+      <TextField fx:id="btn_start_date" layoutX="350.0" layoutY="159.0" prefHeight="27.0" prefWidth="71.0" promptText="Start Date" style="-fx-border-color: #2D75E8;" />
+      <TextField fx:id="btn_due_date" layoutX="430.0" layoutY="159.0" prefHeight="27.0" prefWidth="71.0" promptText="Due Date" style="-fx-border-color: #2D75E8;" />
+      <Button fx:id="btnentertask" layoutX="510.0" layoutY="160.0" mnemonicParsing="false" onAction="#submit" text="Enter" />
    </children>
 </AnchorPane>
