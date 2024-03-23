@@ -18,16 +18,18 @@ public class DashboardController implements Initializable {
     @FXML
     private TableView<StudentsModel> tbData;
     @FXML
-    public TableColumn<StudentsModel, Integer> studentId;
+    public TableColumn<StudentsModel, String> Table_Task;
 
     @FXML
-    public TableColumn<StudentsModel, String> firstName;
+    public TableColumn<StudentsModel, String> Table_Start_Date;
 
     @FXML
-    public TableColumn<StudentsModel, String> lastName;
+    public TableColumn<StudentsModel, String> Table_End_Date;
 
     @FXML
     private PieChart pieChart;
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -51,18 +53,15 @@ public class DashboardController implements Initializable {
 
 
     private ObservableList<StudentsModel> studentsModels = FXCollections.observableArrayList(
-            new StudentsModel(1,"Amos", "Chepchieng"),
-            new StudentsModel(2,"Amos", "Mors"),
-            new StudentsModel(3,"Amos", "Chepchieng"),
-            new StudentsModel(4,"Amos", "Mors")
-    );
+            new StudentsModel(Table_Task, Table_Start_Date, Table_End_Date)
 
+    );
 
     private void loadStudents()
     {
-        studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
-        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        Table_Task.setCellValueFactory(new PropertyValueFactory<>("Task"));
+        Table_Start_Date.setCellValueFactory(new PropertyValueFactory<>("Start Date"));
+        Table_End_Date.setCellValueFactory(new PropertyValueFactory<>("End Date"));
         tbData.setItems(studentsModels);
     }
 

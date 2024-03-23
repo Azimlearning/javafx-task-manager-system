@@ -66,13 +66,11 @@ public class StudentsController implements Initializable {
         tbData.setItems(studentsModels);
     }
 
+
     private ObservableList<StudentsModel> studentsModels = FXCollections.observableArrayList(
-            new StudentsModel(1,"Amos", "Chepchieng"),
-            new StudentsModel(2,"Amos", "Mors"),
-            new StudentsModel(3,"Amos", "Chepchieng"),
-            new StudentsModel(4,"Amos", "Mors"),
-            new StudentsModel(StartDate, AddTask, AddTask )
+
     );
+
 
 
 }

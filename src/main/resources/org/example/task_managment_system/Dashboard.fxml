@@ -109,9 +109,9 @@
                <children>
                   <TableView fx:id="tbData" prefHeight="349.0" prefWidth="1066.0" stylesheets="">
                      <columns>
-                        <TableColumn fx:id="studentId" prefWidth="75.0" text="StudentId" />
-                        <TableColumn fx:id="firstName" prefWidth="75.0" text="First Name" />
-                        <TableColumn fx:id="lastName" prefWidth="75.0" text="Last Name" />
+                        <TableColumn fx:id="Table_Task" prefWidth="75.0" text="Task" />
+                        <TableColumn fx:id="Table_Start_Date" prefWidth="75.0" text="Start Date" />
+                        <TableColumn fx:id="Table_End_Date" prefWidth="75.0" text="End Date" />
                      </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
