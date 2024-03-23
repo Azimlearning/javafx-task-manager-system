@@ -1,11 +1,17 @@
 package org.example.task_managment_system;
 
-import org.example.task_managment_system.StudentsModel;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -16,53 +22,78 @@ import java.util.ResourceBundle;
 public class DashboardController implements Initializable {
 
     @FXML
-    private TableView<StudentsModel> tbData;
+    private TableView<Task> tbData;
     @FXML
-    public TableColumn<StudentsModel, String> Table_Task;
+    public TableColumn<Task, String> Table_Task;
 
     @FXML
-    public TableColumn<StudentsModel, String> Table_Start_Date;
+    public TableColumn<Task, String> Table_Start_Date;
 
     @FXML
-    public TableColumn<StudentsModel, String> Table_End_Date;
+    public TableColumn<Task, String> Table_End_Date;
 
     @FXML
     private PieChart pieChart;
 
+    @FXML
+    private Label totalTaskLabel; // Label to display total tasks
 
+    @FXML
+    private Label completedTaskLabel; // Label to display completed tasks
+
+    @FXML
+    private Label remainderTaskLabel; // Label to display remainder tasks
+
+    @FXML
+    private Label missedTaskLabel; // Label to display missed tasks
+
+    private ObservableList<Task> tasks = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        loadTasks();  // Read tasks from file on initialization
+        updateTaskLabels();  // Update labels with task counts
         loadChart();
-        loadStudents();
-    }
-
-    private void loadChart()
-    {
-
-        PieChart.Data slice1 = new PieChart.Data("Classes", 213);
-        PieChart.Data slice2 = new PieChart.Data("Attendance"  , 67);
-        PieChart.Data slice3 = new PieChart.Data("Teachers" , 36);
-
-        pieChart.getData().add(slice1);
-        pieChart.getData().add(slice2);
-        pieChart.getData().add(slice3);
 
     }
 
+    private void loadTasks() {
+        try {
+            String userHome = System.getProperty("user.home");
+            File tasksFile = new File(userHome, "task-manager/tasks.dat");
+            if (tasksFile.exists()) {
+                FileInputStream fileInputStream = new FileInputStream(tasksFile);
+                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+                tasks = FXCollections.observableArrayList((ArrayList<Task>) objectInputStream.readObject());
+                objectInputStream.close();
+                fileInputStream.close();
+            }
+        } catch (Exception e) {
+            System.out.println("Error reading tasks from file: " + e.getMessage());
+        }
 
-    private ObservableList<StudentsModel> studentsModels = FXCollections.observableArrayList(
-            new StudentsModel(Table_Task, Table_Start_Date, Table_End_Date)
-
-    );
-
-    private void loadStudents()
-    {
-        Table_Task.setCellValueFactory(new PropertyValueFactory<>("Task"));
-        Table_Start_Date.setCellValueFactory(new PropertyValueFactory<>("Start Date"));
-        Table_End_Date.setCellValueFactory(new PropertyValueFactory<>("End Date"));
-        tbData.setItems(studentsModels);
+        Table_Task.setCellValueFactory(new PropertyValueFactory<>("name"));
+        Table_Start_Date.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+        Table_End_Date.setCellValueFactory(new PropertyValueFactory<>("endDate"));
+        tbData.setItems(tasks);
     }
 
+    private void updateTaskLabels() {
+        totalTaskLabel.setText(String.valueOf(Task.getTotalTasks()));
+        completedTaskLabel.setText(String.valueOf(Task.getCompletedTasks()));
+        remainderTaskLabel.setText(String.valueOf(Task.getRemainderTasks()));
+        missedTaskLabel.setText(String.valueOf(Task.getMissedTasks()));
+    }
+
+    private void loadChart() {
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+        int totalTasks = Task.getTotalTasks();
+        if (totalTasks > 0) {
+            pieChartData.add(new PieChart.Data("Completed", Task.getCompletedTasks()));
+            pieChartData.add(new PieChart.Data("Remainder", Task.getRemainderTasks()));
+            pieChartData.add(new PieChart.Data("Missed", Task.getMissedTasks()));
+        }
+        pieChart.setData(pieChartData);
+    }
 }

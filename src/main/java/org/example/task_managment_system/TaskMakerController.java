@@ -55,6 +55,10 @@ public class TaskMakerController {
                 tasks = FXCollections.observableArrayList((ArrayList<Task>) objectInputStream.readObject());
                 objectInputStream.close();
                 fileInputStream.close();
+                // Update task counts based on loaded tasks
+                for (Task task : tasks) {
+                    Task.updateTaskCounts(task);
+                }
             }
         } catch (Exception e) {
             System.out.println("Error reading tasks from file: " + e.getMessage());
@@ -77,6 +81,7 @@ public class TaskMakerController {
 
         Task newTask = new Task(name, description, startDateValue, endDateValue);
         tasks.add(newTask);
+        Task.updateTaskCounts(newTask);  // Update task counts for the new task
 
         // Clear input fields after adding task
         taskInput.clear();
