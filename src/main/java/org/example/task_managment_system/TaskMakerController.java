@@ -14,11 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class TaskMakerController {
 
@@ -71,7 +67,11 @@ public class TaskMakerController {
 
         if (name.isEmpty() || startDateValue == null || endDateValue == null) {
             // Handle empty fields: display error message or alert user
-            System.out.println("Please fill in all fields.");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Incomplete Task");
+            alert.setHeaderText("Please fill in all fields");
+            alert.setContentText("Name, Start Date, and End Date are required for each task.");
+            alert.showAndWait();
             return;
         }
 
@@ -102,4 +102,40 @@ public class TaskMakerController {
             System.out.println("Error writing tasks to file: " + e.getMessage());
         }
     }
+
+    public void deleteTask(ActionEvent event) {
+        Task selectedTask = eventList.getSelectionModel().getSelectedItem();
+        if (selectedTask != null) {
+            tasks.remove(selectedTask);
+            eventList.refresh();
+            //updateTaskCounts();
+            saveTasksToFile();
+        } else {
+            // Display error message within the GUI
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No Task Selected");
+            alert.setContentText("Please select a task to delete.");
+            alert.showAndWait();
+        }
+    }
+
+
+    private void saveTasksToFile() {
+        try {
+            String userHome = System.getProperty("user.home");
+            File tasksFile = new File(userHome, "task-manager/tasks.dat");
+            tasksFile.getParentFile().mkdirs(); // Create directories if they don't exist
+            FileOutputStream fileOutputStream = new FileOutputStream(tasksFile);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            ArrayList<Task> serializableTasks = new ArrayList<>(tasks);
+            objectOutputStream.writeObject(serializableTasks);
+            objectOutputStream.close();
+            fileOutputStream.close();
+        } catch (IOException e) {
+            System.out.println("Error writing tasks to file: " + e.getMessage());
+        }
+    }
+
+
 }
