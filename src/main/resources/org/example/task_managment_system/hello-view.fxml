@@ -36,7 +36,7 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
       <children>
-        <Button fx:id="btnDashboard" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" style="-fx-background-color: F3991A; -fx-background-radius: 1em;" stylesheets="" text="Task Overview">
+        <Button fx:id="btnDashboard" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" style="-fx-background-color: #156070; -fx-background-radius: 1em;" stylesheets="" text="Task Overview" textFill="WHITE">
           <graphic>
           </graphic>
                <font>
@@ -50,14 +50,14 @@
                   <Font size="18.0" />
                </font>
         </Button>
-        <Button fx:id="btn_Timetable" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" style="-fx-background-color: B2C9FF; -fx-background-radius: 1em;" stylesheets="" text="Timetable" GridPane.columnIndex="2">
+        <Button fx:id="btn_Timetable" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" style="-fx-background-color: #156070; -fx-background-radius: 1em;" stylesheets="" text="Timetable" textFill="#fffefe" GridPane.columnIndex="2">
           <graphic>
           </graphic>
                <font>
                   <Font size="18.0" />
                </font>
         </Button>
-        <Button fx:id="btnSettings" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" style="-fx-background-color: #ABADCE; -fx-background-radius: 1em;" stylesheets="" text="Settings" GridPane.columnIndex="2" GridPane.rowIndex="1">
+        <Button fx:id="btnSettings" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" style="-fx-background-color: #156070; -fx-background-radius: 1em;" stylesheets="" text="Settings" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
           <graphic>
           </graphic>
                <font>
@@ -71,7 +71,7 @@
                   <Font size="18.0" />
                </font>
         </Button>
-        <Button fx:id="btnTasks" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" style="-fx-background-color: #EBA77D; -fx-background-radius: 1em;" stylesheets="" text="Tasks" GridPane.rowIndex="1">
+        <Button fx:id="btnTasks" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" style="-fx-background-color: #156070; -fx-background-radius: 1em;" stylesheets="" text="Tasks" textFill="#fffbfb" GridPane.rowIndex="1">
           <graphic>
           </graphic>
                <font>

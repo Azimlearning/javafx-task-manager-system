@@ -9,11 +9,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="1102.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.TaskMakerController">
    <children>
-      <Pane prefHeight="139.0" prefWidth="1102.0" style="-fx-background-color: #12372A;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="140.0" prefWidth="1103.0" style="-fx-background-color: #461D7C;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="73.0" layoutY="30.0" text="TASK" textFill="WHITE">
                <font>
@@ -25,23 +24,42 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <TextFlow prefHeight="200.0" prefWidth="200.0" />
+            <AnchorPane layoutX="2.0" layoutY="143.0" prefHeight="415.0" prefWidth="404.0" style="-fx-background-color: #7549B1;" />
          </children>
       </Pane>
       <Pane layoutX="20.0" layoutY="159.0" prefHeight="33.0" prefWidth="322.0">
          <children>
-            <TextField fx:id="taskInput" alignment="CENTER" prefHeight="25.0" prefWidth="322.0" promptText="Enter Task or Event" style="-fx-border-color: #2D75E8;" />
+            <TextField fx:id="taskInput" alignment="CENTER" prefHeight="28.0" prefWidth="354.0" promptText="Enter Task or Event" style="-fx-border-color: #2D75E8;" />
          </children>
       </Pane>
-      <Button fx:id="enterTask" layoutX="20.0" layoutY="336.0" mnemonicParsing="false" onAction="#enterTask" prefHeight="49.0" prefWidth="60.0" text="Enter" />
-      <DatePicker fx:id="startDate" layoutX="20.0" layoutY="192.0" prefHeight="25.0" prefWidth="156.0" promptText="Start Date" />
-      <DatePicker fx:id="endDate" layoutX="186.0" layoutY="192.0" prefHeight="25.0" prefWidth="156.0" promptText="End Date" />
-      <TextArea fx:id="taskDiscription" layoutX="20.0" layoutY="225.0" prefHeight="100.0" prefWidth="322.0" promptText="Task/Event Description (Optional)" wrapText="true" />
-      <ListView fx:id="eventList" layoutX="400.0" layoutY="159.0" prefHeight="384.0" prefWidth="682.0" />
-      <Button fx:id="deleteButton" layoutX="98.0" layoutY="336.0" mnemonicParsing="false" onAction="#deleteTask" prefHeight="49.0" prefWidth="82.0" text="Delete Task" />
-      <Button fx:id="markCompleteButton" layoutX="244.0" layoutY="336.0" mnemonicParsing="false" onAction="#markTaskComplete" prefHeight="49.0" prefWidth="98.0" text="Mark Complete" />
-      <Button fx:id="editTaskButton" layoutX="20.0" layoutY="393.0" mnemonicParsing="false" onAction="#editTask" prefHeight="49.0" prefWidth="98.0" text="Edit Task" />
-      <Button fx:id="uncompleteTaskButton" layoutX="244.0" layoutY="393.0" mnemonicParsing="false" onAction="#uncompleteTask" prefHeight="49.0" prefWidth="98.0" text="Uncomplete Task" />
+      <Button fx:id="enterTask" layoutX="20.0" layoutY="347.0" mnemonicParsing="false" onAction="#enterTask" prefHeight="49.0" prefWidth="60.0" style="-fx-background-radius: 1em; -fx-background-color: #ECC6FF;" text="Enter">
+         <font>
+            <Font size="11.0" />
+         </font></Button>
+      <DatePicker fx:id="startDate" layoutX="20.0" layoutY="193.0" prefHeight="25.0" prefWidth="156.0" promptText="Start Date" />
+      <DatePicker fx:id="endDate" layoutX="218.0" layoutY="193.0" prefHeight="25.0" prefWidth="156.0" promptText="End Date" />
+      <TextArea fx:id="taskDiscription" layoutX="19.0" layoutY="225.0" prefHeight="114.0" prefWidth="357.0" promptText="Task/Event Description (Optional)" wrapText="true" />
+      <Button fx:id="deleteButton" layoutX="94.0" layoutY="347.0" mnemonicParsing="false" onAction="#deleteTask" prefHeight="49.0" prefWidth="60.0" style="-fx-background-color: F9626C; -fx-background-radius: 1em;" text="Delete">
+         <font>
+            <Font name="System Italic" size="11.0" />
+         </font></Button>
+      <Button fx:id="markCompleteButton" layoutX="270.0" layoutY="352.0" mnemonicParsing="false" onAction="#markTaskComplete" prefHeight="42.0" prefWidth="101.0" style="-fx-background-color: #ABADCE; -fx-background-radius: 1em;" text="Mark Complete">
+         <font>
+            <Font size="11.0" />
+         </font></Button>
+      <Button fx:id="editTaskButton" layoutX="19.0" layoutY="413.0" mnemonicParsing="false" onAction="#editTask" prefHeight="44.0" prefWidth="63.0" style="-fx-background-radius: 1em; -fx-background-color: #ABADCE;" text="Edit Task">
+         <font>
+            <Font size="11.0" />
+         </font></Button>
+      <Button fx:id="uncompleteTaskButton" layoutX="270.0" layoutY="409.0" mnemonicParsing="false" onAction="#uncompleteTask" prefHeight="42.0" prefWidth="102.0" style="-fx-background-color: #ABADCE; -fx-background-radius: 1em;" text="Uncomplete Task">
+         <font>
+            <Font size="11.0" />
+         </font></Button>
+      <AnchorPane layoutX="410.0" layoutY="148.0" prefHeight="409.0" prefWidth="687.0" style="-fx-background-color: #D7B8E6#D7B8E6;">
+         <children>
+            <ListView fx:id="eventList" layoutX="12.0" layoutY="13.0" prefHeight="382.0" prefWidth="666.0" />
+         </children>
+      </AnchorPane>
 
 
 
