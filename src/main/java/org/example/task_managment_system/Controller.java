@@ -41,11 +41,12 @@ public class Controller implements Initializable {
         if (mouseEvent.getSource() == btnDashboard) {
             loadStage("Dashboard.fxml");
         } else if (mouseEvent.getSource() == btnStudents) {
-            loadStage("Table.fxml");
+            loadStage("task_display.fxml");
         } else if (mouseEvent.getSource() == btnTasks) {
             loadStage("TaskMaker.fxml");
         }
     }//Dashboard.fxml
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

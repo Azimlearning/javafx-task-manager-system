@@ -1,0 +1,47 @@
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.TaskDisplayController">
+    <children>
+        <TableView fx:id="taskTable" layoutX="14.0" layoutY="74.0" prefHeight="300.0" prefWidth="772.0">
+            <columns>
+                <TableColumn fx:id="taskCol" prefWidth="150.0" text="Task">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="startDateCol" prefWidth="120.0" text="Start Date">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="startDate" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="endDateCol" prefWidth="120.0" text="End Date">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="endDate" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="descriptionCol" prefWidth="250.0" text="Description">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="description" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="statusCol" prefWidth="140.0" text="Status">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="toString" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <Label layoutX="14.0" layoutY="18.0" prefHeight="27.0" prefWidth="108.0" text="Total Tasks:" />
+        <Label fx:id="totalTasksLabel" layoutX="122.0" layoutY="18.0" prefHeight="27.0" prefWidth="39.0" text="0" />
+        <Label layoutX="202.0" layoutY="18.0" prefHeight="27.0" prefWidth="123.0" text="Total Completed Tasks:" />
+        <Label fx:id="completedTasksLabel" layoutX="325.0" layoutY="18.0" prefHeight="27.0" prefWidth="39.0" text="0" />
+        <Label layoutX="404.0" layoutY="18.0" prefHeight="27.0" prefWidth="99.0" text="Total Missed Tasks:" />
+        <Label fx:id="missedTasksLabel" layoutX="503.0" layoutY="18.0" prefHeight="27.0" prefWidth="39.0" text="0" />
+        <Label layoutX="582.0" layoutY="18.0" prefHeight="27.0" prefWidth="107.0" text="Total Ongoing Tasks:" />
+        <Label fx:id="ongoingTasksLabel" layoutX="689.0" layoutY="18.0" prefHeight="27.0" prefWidth="39.0" text="0" />
+    </children>
+</AnchorPane>
