@@ -5,13 +5,13 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.TableColumn;
 
-public class StudentsModel {
+public class TabelModel {
 
     private SimpleIntegerProperty tableTask;
     private SimpleStringProperty startDate;
     private SimpleStringProperty endDate;
 
-    public StudentsModel(TableColumn<StudentsModel, String> tableTask, TableColumn<StudentsModel, String> startDate, TableColumn<StudentsModel, String> endDate) {
+    public TabelModel(TableColumn<TabelModel, String> tableTask, TableColumn<TabelModel, String> startDate, TableColumn<TabelModel, String> endDate) {
         this.tableTask = new SimpleIntegerProperty();
         this.startDate = new SimpleStringProperty();
         this.endDate = new SimpleStringProperty();

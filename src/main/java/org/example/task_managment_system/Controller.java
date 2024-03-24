@@ -41,7 +41,7 @@ public class Controller implements Initializable {
         if (mouseEvent.getSource() == btnDashboard) {
             loadStage("Dashboard.fxml");
         } else if (mouseEvent.getSource() == btnStudents) {
-            loadStage("Students.fxml");
+            loadStage("Table.fxml");
         } else if (mouseEvent.getSource() == btnTasks) {
             loadStage("TaskMaker.fxml");
         }

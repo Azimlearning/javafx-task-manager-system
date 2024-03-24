@@ -10,23 +10,22 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.event.ActionEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StudentsController implements Initializable {
+public class TabelController implements Initializable {
 
     @FXML
-    private TableView<StudentsModel> tbData;
+    private TableView<TabelModel> tbData;
     @FXML
-    public TableColumn<StudentsModel, Integer> studentId;
+    public TableColumn<TabelModel, Integer> studentId;
 
     @FXML
-    public TableColumn<StudentsModel, String> firstName;
+    public TableColumn<TabelModel, String> firstName;
 
     @FXML
-    public TableColumn<StudentsModel, String> lastName;
+    public TableColumn<TabelModel, String> lastName;
 
     @FXML
     public Button btnentertask;
@@ -52,7 +51,7 @@ public class StudentsController implements Initializable {
         System.out.println(AddTask + StartDate + DueDate);
     }
 
-    public StudentsController()
+    public TabelController()
     {
 
     }
@@ -67,7 +66,7 @@ public class StudentsController implements Initializable {
     }
 
 
-    private ObservableList<StudentsModel> studentsModels = FXCollections.observableArrayList(
+    private ObservableList<TabelModel> studentsModels = FXCollections.observableArrayList(
 
     );
 

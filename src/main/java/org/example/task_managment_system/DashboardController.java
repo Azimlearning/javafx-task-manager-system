@@ -1,6 +1,5 @@
 package org.example.task_managment_system;
 
-import org.example.task_managment_system.StudentsModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,15 +15,15 @@ import java.util.ResourceBundle;
 public class DashboardController implements Initializable {
 
     @FXML
-    private TableView<StudentsModel> tbData;
+    private TableView<TabelModel> tbData;
     @FXML
-    public TableColumn<StudentsModel, String> Table_Task;
+    public TableColumn<TabelModel, String> Table_Task;
 
     @FXML
-    public TableColumn<StudentsModel, String> Table_Start_Date;
+    public TableColumn<TabelModel, String> Table_Start_Date;
 
     @FXML
-    public TableColumn<StudentsModel, String> Table_End_Date;
+    public TableColumn<TabelModel, String> Table_End_Date;
 
     @FXML
     private PieChart pieChart;
@@ -52,8 +51,8 @@ public class DashboardController implements Initializable {
     }
 
 
-    private ObservableList<StudentsModel> studentsModels = FXCollections.observableArrayList(
-            new StudentsModel(Table_Task, Table_Start_Date, Table_End_Date)
+    private ObservableList<TabelModel> studentsModels = FXCollections.observableArrayList(
+            new TabelModel(Table_Task, Table_Start_Date, Table_End_Date)
 
     );
 
