@@ -57,6 +57,23 @@ public class Task implements Serializable {
         return completionStatus + "  " + getName() + " - " + (startDate.equals(endDate) ? startDate.toString() : startDate + " to " + endDate);
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+
 }
 
 

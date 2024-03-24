@@ -14,7 +14,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class TaskMakerController {
 
@@ -148,6 +152,48 @@ public class TaskMakerController {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No Task Selected");
             alert.setHeaderText("Please select a task to mark complete.");
+            alert.showAndWait();
+        }
+    }
+
+    public void uncompleteTask(ActionEvent event) {
+        Task selectedTask = eventList.getSelectionModel().getSelectedItem();
+        if (selectedTask != null) {
+            selectedTask.setCompleted(false); // Mark the task as uncompleted
+            eventList.refresh(); // Update the list view
+        } else {
+            // Display error message using an Alert
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No Task Selected");
+            alert.setHeaderText("Please select a task to mark uncomplete.");
+            alert.showAndWait();
+        }
+    }//Please select a task to mark uncomplete.
+
+
+    public void editTask(ActionEvent event) {
+        Task selectedTask = eventList.getSelectionModel().getSelectedItem();
+        if (selectedTask != null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("edittask.fxml"));
+                Parent root = loader.load();
+                EditTaskController editController = loader.getController();
+                editController.setTaskToEdit(selectedTask);
+
+                Stage editStage = new Stage();
+                editStage.setTitle("Edit Task");
+                editStage.setScene(new Scene(root));
+                editStage.initModality(Modality.APPLICATION_MODAL);
+                editStage.showAndWait();
+
+                eventList.refresh(); // Update list view after potential changes
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No Task Selected");
+            alert.setHeaderText("Please select a task to edit.");
             alert.showAndWait();
         }
     }

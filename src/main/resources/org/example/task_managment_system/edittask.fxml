@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.String?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="editTaskPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1.0" fx:controller="org.example.task_managment_system.EditTaskController">
+    <children>
+        <Label layoutX="24.0" layoutY="27.0" text="Edit Task" textFill="#000000">
+            <font>
+            </font>
+        </Label>
+        <TextField fx:id="taskNameInput" layoutX="24.0" layoutY="72.0" prefHeight="25.0" prefWidth="550.0" promptText="Task Name">
+            <text>
+                <Font size="16.0" />
+            </text>
+        </TextField>
+        <TextArea fx:id="taskDescriptionInput" layoutX="24.0" layoutY="121.0" prefHeight="100.0" prefWidth="550.0" promptText="Task Description (Optional)">
+            <text>
+                <Font size="16.0" />
+            </text>
+        </TextArea>
+        <Label layoutX="24.0" layoutY="232.0" text="Start Date:" textFill="#000000">
+            <font>
+            </font>
+        </Label>
+        <DatePicker fx:id="startDatePicker" layoutX="24.0" layoutY="258.0" prefWidth="200.0" />
+        <Label layoutX="274.0" layoutY="232.0" text="End Date:" textFill="#000000">
+            <font>
+            </font>
+        </Label>
+        <DatePicker fx:id="endDatePicker" layoutX="274.0" layoutY="258.0" prefWidth="200.0" />
+        <HBox layoutX="24.0" layoutY="325.0" prefHeight="40.0" prefWidth="550.0" spacing="10.0">
+            <children>
+                <Button fx:id="saveButton" text="Save" textFill="#ffffff" onAction="#saveTask">
+                    <font>
+                    </font>
+                </Button>
+                <Button fx:id="cancelButton" text="Cancel" textFill="#ffffff" onAction="#closeWindow">
+                    <font>
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
