@@ -38,6 +38,7 @@ public class TaskMakerController {
 
     private ObservableList<Task> tasks;
 
+
     public void initialize() {
         tasks = FXCollections.observableArrayList();
 
@@ -134,6 +135,20 @@ public class TaskMakerController {
             fileOutputStream.close();
         } catch (IOException e) {
             System.out.println("Error writing tasks to file: " + e.getMessage());
+        }
+    }
+
+    public void markTaskComplete(ActionEvent event) {
+        Task selectedTask = eventList.getSelectionModel().getSelectedItem();
+        if (selectedTask != null) {
+            selectedTask.setCompleted(true); // Mark the task as completed
+            eventList.refresh(); // Update the list view
+        } else {
+            // Display error message using an Alert
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No Task Selected");
+            alert.setHeaderText("Please select a task to mark complete.");
+            alert.showAndWait();
         }
     }
 

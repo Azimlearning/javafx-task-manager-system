@@ -39,5 +39,7 @@
       <TextArea fx:id="taskDiscription" layoutX="20.0" layoutY="225.0" prefHeight="100.0" prefWidth="322.0" promptText="Task/Event Description (Optional)" wrapText="true" />
       <ListView fx:id="eventList" layoutX="400.0" layoutY="159.0" prefHeight="384.0" prefWidth="682.0" />
       <Button fx:id="deleteButton" layoutX="98.0" layoutY="336.0" mnemonicParsing="false" onAction="#deleteTask" prefHeight="49.0" prefWidth="82.0" text="Delete Task" />
+      <Button fx:id="markCompleteButton" layoutX="882.0" layoutY="163.0" mnemonicParsing="false" onAction="#markTaskComplete" prefHeight="49.0" prefWidth="98.0" text="Mark Complete" />
+
    </children>
 </AnchorPane>
