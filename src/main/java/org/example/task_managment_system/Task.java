@@ -1,4 +1,6 @@
 package org.example.task_managment_system;
+import javafx.event.ActionEvent;
+
 import java.time.LocalDate;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -63,15 +65,16 @@ public class Task implements Serializable {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
-        this.onGoing = !completed;  // Set onGoing to true if completed is false
+        this.onGoing = !completed; // Set onGoing directly based on completed
     }
+
 
 
     public void setIsOngoing(boolean isOngoing) {
         if (isOngoing) {
             // Ensure ongoing state is consistent with completed and missed
             this.completed = false;
-            this.missed = isStartDatePassed() && !isCompleted(); // Recheck missed after potentially clearing it
+            this.missed = isStartDatePassed() && !isCompleted(); // Recheck missed
         }
         this.onGoing = isOngoing;
     }
@@ -84,6 +87,19 @@ public class Task implements Serializable {
         this.missed = isStartDatePassed() && !isCompleted();
         this.onGoing = !isCompleted() && !isMissed();
     }
+    /*no usage
+    public void uncompleteTask(ActionEvent event) {
+        Task selectedTask = eventList.getSelectionModel().getSelectedItem();
+        if (selectedTask != null) {
+            selectedTask.setCompleted(false);
+            selectedTask.updateTaskStatus(); // Call to recalculate onGoing
+            eventList.refresh();
+        } else {
+            // ... (error message)
+        }
+    }
+    */
+
 
 
     /*
