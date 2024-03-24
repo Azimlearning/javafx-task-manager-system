@@ -10,6 +10,8 @@ public class Task implements Serializable {
         private LocalDate startDate;
         private LocalDate endDate;
         private boolean completed;
+        private boolean onGoing;
+        private boolean missed;
 
         public Task(String name, String description, LocalDate startDate, LocalDate endDate) {
             this.name = name;
@@ -17,6 +19,8 @@ public class Task implements Serializable {
             this.startDate = startDate;
             this.endDate = endDate;
             this.completed = false;
+            this.onGoing = true;
+            this.missed = isStartDatePassed(); // Check for missed status on creation
         }
 
         public String getName() {
@@ -48,14 +52,63 @@ public class Task implements Serializable {
         return completed;
     }
 
+    public boolean isOnGoing() {
+        return onGoing && !isMissed(); // Updated to consider missed state
+    }
+
+
+    public boolean isMissed() {
+        return missed;
+    }
+
     public void setCompleted(boolean completed) {
         this.completed = completed;
+        this.onGoing = !completed;  // Set onGoing to true if completed is false
     }
+
+
+    public void setIsOngoing(boolean isOngoing) {
+        if (isOngoing) {
+            // Ensure ongoing state is consistent with completed and missed
+            this.completed = false;
+            this.missed = isStartDatePassed() && !isCompleted(); // Recheck missed after potentially clearing it
+        }
+        this.onGoing = isOngoing;
+    }
+
+    private boolean isStartDatePassed() {
+        return LocalDate.now().isAfter(startDate); // Check if current date is past start date
+    }
+    public void updateTaskStatus() {//You can call this method whenever you need to refresh the task status based on the current date
+        // Update missed and ongoing flags based on current date
+        this.missed = isStartDatePassed() && !isCompleted();
+        this.onGoing = !isCompleted() && !isMissed();
+    }
+
+
+    /*
     @Override
     public String toString() {
         String completionStatus = isCompleted() ? "[COMPLETED]" : "";
         return completionStatus + "  " + getName() + " - " + (startDate.equals(endDate) ? startDate.toString() : startDate + " to " + endDate);
+    */
+    @Override
+    public String toString() {
+        String statusString;
+        if (isCompleted()) {
+            statusString = "[COMPLETED]";
+        } else if (isOnGoing()) {
+            statusString = "[ONGOING]";
+        } else if (isMissed()) {
+            statusString = "[MISSED]";
+        } else {
+            statusString = "";  // Handle any other potential cases
+        }
+
+        return statusString + "  " + getName() + " - " +
+                (startDate.equals(endDate) ? startDate.toString() : startDate + " to " + endDate);
     }
+
 
     public void setName(String name) {
         this.name = name;

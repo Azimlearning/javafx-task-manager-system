@@ -160,6 +160,7 @@ public class TaskMakerController {
         Task selectedTask = eventList.getSelectionModel().getSelectedItem();
         if (selectedTask != null) {
             selectedTask.setCompleted(false); // Mark the task as uncompleted
+            selectedTask.updateTaskStatus();
             eventList.refresh(); // Update the list view
         } else {
             // Display error message using an Alert
