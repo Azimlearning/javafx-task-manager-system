@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -9,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="943.0" style="" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="943.0" style="-fx-background-color: #7549B1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.Controller">
   <children>
     <Pane prefHeight="173.0" prefWidth="980.0" style="-fx-background-color: #461D7C;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
@@ -23,6 +25,15 @@
             <Font size="13.0" />
           </font>
         </Label>
+            <AnchorPane prefHeight="432.0" prefWidth="923.0">
+               <children>
+                  <ImageView fitHeight="90.0" fitWidth="82.0" layoutX="505.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Desktop/images-2.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
       </children>
     </Pane>
     <GridPane alignment="CENTER" hgap="10.0" layoutX="165.0" layoutY="228.0" prefHeight="320.0" prefWidth="650.0" vgap="10.0" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="165.0">
@@ -40,7 +51,7 @@
           <graphic>
           </graphic>
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
         </Button>
         <Button fx:id="btnStudents" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" style="-fx-background-color: #156070; -fx-background-radius: 1em;" stylesheets="" text="Task details" textFill="WHITE" GridPane.columnIndex="1">
@@ -57,14 +68,14 @@
                   <Font size="18.0" />
                </font>
         </Button>
-        <Button fx:id="btnSettings" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" style="-fx-background-color: #156070; -fx-background-radius: 1em;" stylesheets="" text="Settings" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+        <Button fx:id="btnSettings" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" style="-fx-background-color: #156070; -fx-background-radius: 1em;" stylesheets="" text="Exit" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
           <graphic>
           </graphic>
                <font>
                   <Font size="18.0" />
                </font>
         </Button>
-        <Button fx:id="btnUpdate" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" style="-fx-background-color: F9626C; -fx-background-radius: 1em;" stylesheets="" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <Button fx:id="btnUpdate" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="181.0" prefWidth="242.0" style="-fx-background-color: #156070; -fx-background-radius: 1em;" stylesheets="" text="Update" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
           <graphic>
           </graphic>
                <font>
@@ -78,6 +89,31 @@
                   <Font size="18.0" />
                </font>
         </Button>
+            <ImageView blendMode="SRC_ATOP" fitHeight="194.0" fitWidth="189.0" nodeOrientation="INHERIT" opacity="0.22">
+               <image>
+                  <Image url="@../../../../../../../../Desktop/home.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="180.0" fitWidth="200.0" opacity="0.17" GridPane.columnIndex="2">
+               <image>
+                  <Image url="@../../../../../../../../Desktop/schedule.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="171.0" fitWidth="189.0" opacity="0.14" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@../../../../../../../../Desktop/list.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="133.0" fitWidth="188.0" opacity="0.25" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/list.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="193.0" fitWidth="185.0" opacity="0.17" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/exit-2.png" />
+               </image>
+            </ImageView>
       </children>
     </GridPane>
   </children>
