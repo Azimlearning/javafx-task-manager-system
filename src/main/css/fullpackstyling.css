@@ -78,3 +78,12 @@
     -fx-border-color: derive(-fx-pie-color, 1%);
     -fx-border-width: 0px;
 }
+
+.inner_pane{
+    -fx-background-color: #436850;
+    /*-fx-border-color: 436850:*/
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 30px;
+    -fx-background-radius: 20px;
+    -fx-border-style: solid;
+}
