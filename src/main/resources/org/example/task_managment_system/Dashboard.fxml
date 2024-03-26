@@ -46,7 +46,7 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="72.0" layoutY="25.0" text="500" textFill="WHITE">
+                  <Label fx:id="totalTasksLabel" alignment="CENTER" layoutX="92.0" layoutY="14.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
@@ -60,7 +60,7 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="59.0" layoutY="25.0" text="1000" textFill="WHITE">
+                  <Label fx:id="completedTasksLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="14.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
@@ -69,12 +69,12 @@
             </Pane>
             <Pane prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: #5CB55B; -fx-background-radius: 1em;" GridPane.columnIndex="2">
                <children>
-                  <Label layoutX="54.0" layoutY="69.0" text="Remainder Task" textFill="WHITE">
+                  <Label layoutX="54.0" layoutY="69.0" text="On Going Task" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="79.0" layoutY="25.0" text="10" textFill="WHITE">
+                  <Label fx:id="ongoingTasksLabel" alignment="TOP_CENTER" layoutX="89.0" layoutY="14.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
@@ -88,7 +88,7 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="90.0" layoutY="25.0" text="2" textFill="WHITE">
+                  <Label fx:id="missedTasksLabel" alignment="TOP_CENTER" layoutX="90.0" layoutY="14.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
@@ -107,11 +107,11 @@
                   <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TableView fx:id="tbData" prefHeight="349.0" prefWidth="1066.0" stylesheets="">
+                  <TableView fx:id="taskTableView" prefHeight="349.0" prefWidth="1066.0" stylesheets="">
                      <columns>
-                        <TableColumn fx:id="Table_Task" prefWidth="75.0" text="Task" />
-                        <TableColumn fx:id="Table_Start_Date" prefWidth="75.0" text="Start Date" />
-                        <TableColumn fx:id="Table_End_Date" prefWidth="75.0" text="End Date" />
+                        <TableColumn fx:id="nameCol" prefWidth="75.0" text="Task" />
+                        <TableColumn fx:id="endCol" prefWidth="75.0" text="End Date" />
+                        <TableColumn fx:id="statusCol" prefWidth="75.0" text="Status" />
                      </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
