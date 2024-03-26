@@ -4,6 +4,7 @@ module org.example.task_managment_system {
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
+    requires java.sql;
 
     opens org.example.task_managment_system to javafx.fxml;
     exports org.example.task_managment_system;

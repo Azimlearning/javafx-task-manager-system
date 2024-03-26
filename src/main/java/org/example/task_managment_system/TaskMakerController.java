@@ -6,9 +6,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import Connection.DBConnect;
 
+import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,6 +24,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class TaskMakerController {
+
 
     @FXML
     private DatePicker startDate;
@@ -41,10 +45,30 @@ public class TaskMakerController {
     private ListView<Task> eventList;
 
     private ObservableList<Task> tasks;
+    String query = null;
+    Connection connection;
 
 
-    public void initialize() {
+    public TaskMakerController() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://techcaredb.cbg6264eke46.ap-southeast-2.rds.amazonaws.com :3306/TaskManagerSytem", "admin", "shukri1234");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+
+
+    public void initialize() throws SQLException {
         tasks = FXCollections.observableArrayList();
+        ListView<Task> listView = new ListView<>(tasks);
+        ObservableList<Task> tasks = refreshList();
+        eventList.setItems(tasks);
+
+        // Execute the query and process results
+        refreshList();
 
         // Read tasks from file on startup (if it exists)
         try {
@@ -64,11 +88,16 @@ public class TaskMakerController {
         eventList.setItems(tasks);
     }
 
-    public void enterTask(ActionEvent event) throws IOException {
+
+    public void enterTask(ActionEvent event) throws IOException, SQLException {
         String name = taskInput.getText();
         String description = taskDiscription.getText().trim().isEmpty() ? null : taskDiscription.getText();
         LocalDate startDateValue = startDate.getValue();
         LocalDate endDateValue = endDate.getValue();
+        String StatusTask;
+        String sql = "SELECT * FROM Tasklist";
+
+
 
         if (name.isEmpty() || startDateValue == null || endDateValue == null) {
             // Handle empty fields: display error message or alert user
@@ -78,9 +107,50 @@ public class TaskMakerController {
             alert.setContentText("Name, Start Date, and End Date are required for each task.");
             alert.showAndWait();
             return;
+        }else{
+
+            if(LocalDate.now().isAfter(endDate.getValue())){
+                StatusTask= "Missed";
+            }else{
+                StatusTask= "Ongoing";
+            }
+            try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Tasklist (TaskName, StartDate, EndDate, TaskDescription, TaskStatus) VALUES (?,?,?,?,?)")) {
+                preparedStatement.setString(1, name);
+                preparedStatement.setString(2, String.valueOf(startDateValue));
+                preparedStatement.setString(3, String.valueOf(endDateValue));
+                preparedStatement.setString(4, description);
+                preparedStatement.setString(5, StatusTask);
+
+                int rowsAffected = preparedStatement.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Save SUCCESS");
+                    alert.setHeaderText("Task saved successfully!");
+                    alert.showAndWait();
+                    clearAll();
+                    System.out.println("Order submitted successfully!");
+                } else {
+                    System.out.println("Failed to submit order. Please try again.");
+                }
+
+
+                // Clear input fields after adding task
+                taskInput.clear();
+                taskDiscription.clear();
+                startDate.setValue(null);
+                endDate.setValue(null);
+
+                // Update event list with new task
+                eventList.refresh();
+                eventList.setItems(refreshList());
+            }catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
-        Task newTask = new Task(name, description, startDateValue, endDateValue);
+
+        /*Task newTask = new Task(name, description, startDateValue, endDateValue, StatusTask);
         tasks.add(newTask);
 
         // Clear input fields after adding task
@@ -91,6 +161,7 @@ public class TaskMakerController {
 
         // Update event list with new task
         eventList.refresh();
+
 
         // Write tasks to file
         try {
@@ -105,7 +176,46 @@ public class TaskMakerController {
             fileOutputStream.close();
         } catch (IOException e) {
             System.out.println("Error writing tasks to file: " + e.getMessage());
+        }*/
+    }
+
+    private ObservableList<Task> refreshList() throws SQLException{
+        ObservableList<Task> tasks = FXCollections.observableArrayList();
+
+        connection= DBConnect.getConnect();
+        String sql = "SELECT * FROM Tasklist";
+        try{
+        PreparedStatement statement = connection.prepareStatement(sql);
+        ResultSet results = statement.executeQuery();
+
+        while (results.next()) {
+            int id = results.getInt("TaskID");
+            String name = results.getString("TaskName");
+            LocalDate startdate = results.getDate("StartDate").toLocalDate();
+            LocalDate enddate = results.getDate("EndDate").toLocalDate();
+            String taskdesc = results.getString("TaskDescription");
+            String taskstatus = results.getString("TaskStatus");
+
+
+            // Create a Product object and add it to the list
+            tasks.add(new Task(id, name, taskdesc, startdate, enddate, taskstatus));
         }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return tasks;
+
+    }
+
+    private void clearAll() {
+        taskInput.clear();
+        taskDiscription.clear();
+        startDate.setValue(null);
+        endDate.setValue(null);
+
+        // Update event list with new task
+        eventList.refresh();
     }
 
     public void deleteTask(ActionEvent event) {

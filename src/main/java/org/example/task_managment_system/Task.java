@@ -7,15 +7,19 @@ import java.time.LocalDate;
 
 public class Task implements Serializable {
 
+        private int TaskID;
         private String name;
         private String description; // Optional
         private LocalDate startDate;
         private LocalDate endDate;
+        private String StatusTask;
         private boolean completed;
         private boolean onGoing;
         private boolean missed;
 
-        public Task(String name, String description, LocalDate startDate, LocalDate endDate) {
+
+        public Task(int TaskID, String name, String description, LocalDate startDate, LocalDate endDate, String StatusTask) {
+            this.TaskID= TaskID;
             this.name = name;
             this.description = description;
             this.startDate = startDate;
@@ -23,8 +27,13 @@ public class Task implements Serializable {
             this.completed = false;
             this.onGoing = true;
             this.missed = isStartDatePassed(); // Check for missed status on creation
+            this.StatusTask = StatusTask;
+
         }
 
+        public int getID() {
+            return TaskID;
+         }
         public String getName() {
             return name;
         }
@@ -121,8 +130,7 @@ public class Task implements Serializable {
             statusString = "";  // Handle any other potential cases
         }
 
-        return statusString + "  " + getName() + " - " +
-                (startDate.equals(endDate) ? startDate.toString() : startDate + " to " + endDate);
+        return statusString + "  " + getName() + " - " + (startDate.equals(endDate) ? startDate.toString() : startDate + " to " + endDate);
     }
 
 
