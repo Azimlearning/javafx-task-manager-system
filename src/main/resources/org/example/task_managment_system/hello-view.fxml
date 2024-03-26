@@ -14,51 +14,59 @@
       <children>
             <Pane layoutX="37.0" layoutY="254.0" prefHeight="343.0" prefWidth="233.0">
                <children>
-                  <TableView layoutY="-3.0" prefHeight="345.0" prefWidth="233.0">
+                  <TableView fx:id="taskTableView" layoutY="-3.0" prefHeight="345.0" prefWidth="233.0">
                     <columns>
-                      <TableColumn prefWidth="113.18265914916992" text="Task" />
-                        <TableColumn prefWidth="118.50001525878906" text="End Date" />
+                      <TableColumn fx:id="nameCol" prefWidth="113.18265914916992" text="Task" />
+                        <TableColumn fx:id="endCol" prefWidth="118.50001525878906" text="End Date" />
                     </columns>
                   </TableView>
                </children>
             </Pane>
-            <Label fx:id="currentTime" alignment="CENTER" layoutX="42.0" layoutY="76.0" prefHeight="94.0" prefWidth="224.0" text="00:00" textFill="WHITE">
+            <Label fx:id="currentTime" alignment="CENTER" layoutX="42.0" layoutY="76.0" prefHeight="94.0" prefWidth="224.0" textFill="WHITE">
                <font>
                   <Font name="Bodoni 72 Bold" size="74.0" />
                </font>
             </Label>
-            <Label fx:id="currentDate" alignment="CENTER" layoutX="4.0" layoutY="41.0" prefHeight="35.0" prefWidth="300.0" text="24 September, Wednesday" textFill="WHITE">
+            <Label fx:id="currentDate" alignment="CENTER" layoutX="4.0" layoutY="41.0" prefHeight="35.0" prefWidth="300.0" textFill="WHITE">
                <font>
                   <Font name="Baloo Tamma 2 SemiBold" size="23.0" />
                </font>
             </Label>
       </children>
     </Pane>
-      <Button fx:id="btnDashboard" layoutX="450.0" layoutY="266.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="158.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="TRACKER">
-         <font>
-            <Font name="Baloo Tamma 2 SemiBold" size="18.0" />
-         </font></Button>
-      <Button fx:id="btnStudents" layoutX="645.0" layoutY="266.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="158.0" style="-fx-background-color: #D7B8E6#D7B8E6; -fx-background-radius: 2em;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="OVERVIEW">
-         <font>
-            <Font name="Baloo Tamma 2 SemiBold" size="18.0" />
-         </font></Button>
-      <Button fx:id="btnTasks" layoutX="448.0" layoutY="425.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="161.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="EDIT">
-         <font>
-            <Font name="Baloo Tamma 2 SemiBold" size="18.0" />
-         </font></Button>
-      <Button fx:id="btnSettings" layoutX="644.0" layoutY="426.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="159.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="TODO">
-         <font>
-            <Font name="Baloo Tamma 2 SemiBold" size="18.0" />
-         </font>
-      </Button>
-      <Pane layoutX="311.0" layoutY="49.0" prefHeight="200.0" prefWidth="630.0">
+      <Pane layoutX="436.0" layoutY="243.0" prefHeight="320.0" prefWidth="380.0" style="-fx-border-color: black; -fx-background-color: #461D7C; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-width: 2px;">
          <children>
-            <Label alignment="CENTER" prefHeight="200.0" prefWidth="630.0" text="Task Manager System" textFill="WHITE">
+            <Button fx:id="btnDashboard" layoutX="208.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="158.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="TRACKER">
                <font>
-                  <Font name="Baloo Tamma 2 SemiBold" size="56.0" />
+                  <Font name="Baloo Tamma 2 SemiBold" size="18.0" />
                </font>
-            </Label>
+            </Button>
+            <Button fx:id="btnStudents" layoutX="15.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="158.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyline.css" text="OVERVIEW">
+               <font>
+                  <Font name="Baloo Tamma 2 SemiBold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnTasks" layoutX="14.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="161.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="EDIT">
+               <font>
+                  <Font name="Baloo Tamma 2 SemiBold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSettings" layoutX="207.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="130.0" prefWidth="160.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="TODO">
+               <font>
+                  <Font name="Baloo Tamma 2 SemiBold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnDashboard1" layoutX="164.0" layoutY="137.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 25px; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="EXIT">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
+      <Label alignment="CENTER" layoutX="311.0" layoutY="30.0" prefHeight="200.0" prefWidth="630.0" text="Task Manager System" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB" size="56.0" />
+         </font>
+      </Label>
   </children>
 </AnchorPane>

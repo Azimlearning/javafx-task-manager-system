@@ -16,12 +16,12 @@
    <children>
       <Pane layoutY="-2.0" prefHeight="139.0" prefWidth="950.0" style="-fx-background-color: #461D7C;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="-2.0">
          <children>
-            <Label layoutX="73.0" layoutY="30.0" text="TaskBoard" textFill="WHITE">
+            <Label layoutY="30.0" prefHeight="70.0" prefWidth="950.0" text="    Manage Your Unfinished  Task" textFill="WHITE">
                <font>
                   <Font size="48.0" />
                </font>
             </Label>
-            <Label layoutX="79.0" layoutY="91.0" text="Task managment system " textFill="WHITE">
+            <Label layoutX="56.0" layoutY="91.0" text="Task managment system " textFill="WHITE">
                <font>
                   <Font size="13.0" />
                </font>

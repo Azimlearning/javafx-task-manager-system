@@ -7,11 +7,15 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
+
 import Connection.DBConnect;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -44,6 +48,11 @@ public class TaskMakerController {
     @FXML
     private ListView<Task> eventList;
 
+    @FXML
+    private Label currentTime;
+    @FXML
+    private Label currentDate;
+
 
 
     private ObservableList<Task> tasks;
@@ -65,6 +74,7 @@ public class TaskMakerController {
 
 
     public void initialize() throws SQLException {
+        timeNow();
         tasks = FXCollections.observableArrayList();
         ListView<Task> listView = new ListView<>(tasks);
         ObservableList<Task> tasks = refreshList();
@@ -328,6 +338,27 @@ public class TaskMakerController {
             alert.setHeaderText("Please select a task to edit.");
             alert.showAndWait();
         }
+    }
+
+    public void timeNow() { //clock function (not tested yet)
+        Thread thread = new Thread(() -> {
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, EEEE"); //format
+            try {
+                while (!Thread.currentThread().isInterrupted()) { //infinite loop
+                    Thread.sleep(1000);
+                    final String timeNow = timeFormat.format(new java.util.Date());
+                    final String dateNow = dateFormat.format(new Date());
+                    Platform.runLater(() -> {
+                        currentTime.setText(timeNow);
+                        currentDate.setText(dateNow); //labelname
+                    });
+                }
+            } catch (InterruptedException e) {
+                //do nothing
+            }
+        });
+        thread.start();
     }
 
 

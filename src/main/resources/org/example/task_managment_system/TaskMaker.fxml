@@ -45,12 +45,12 @@
                   </Button>
                   <Pane layoutX="17.0" layoutY="265.0" prefHeight="130.0" prefWidth="360.0">
                      <children>
-                        <Label alignment="CENTER" layoutX="7.0" layoutY="6.0" prefHeight="39.0" prefWidth="342.0" text="24 September, Wednesday">
+                        <Label fx:id="currentDate" alignment="CENTER" layoutX="7.0" layoutY="6.0" prefHeight="39.0" prefWidth="342.0" text="24 September, Wednesday">
                            <font>
                               <Font name="Baloo Thambi 2 ExtraBold" size="26.0" />
                            </font>
                         </Label>
-                        <Label alignment="TOP_CENTER" layoutX="-1.0" layoutY="52.0" prefHeight="81.0" prefWidth="362.0" text="00:00">
+                        <Label fx:id="currentTime" alignment="TOP_CENTER" layoutX="-1.0" layoutY="52.0" prefHeight="81.0" prefWidth="362.0" text="00:00">
                            <font>
                               <Font name="Bodoni 72 Bold" size="58.0" />
                            </font>
