@@ -44,6 +44,8 @@ public class TaskMakerController {
     @FXML
     private ListView<Task> eventList;
 
+
+
     private ObservableList<Task> tasks;
     String query = null;
     Connection connection;
@@ -71,7 +73,7 @@ public class TaskMakerController {
         // Execute the query and process results
         refreshList();
 
-        // Read tasks from file on startup (if it exists)
+        // Read tasks from file on startup
         try {
             String userHome = System.getProperty("user.home");
             File tasksFile = new File(userHome, "task-manager/tasks.dat");
@@ -87,6 +89,8 @@ public class TaskMakerController {
         }
 
         eventList.setItems(tasks);
+
+
     }
 
 

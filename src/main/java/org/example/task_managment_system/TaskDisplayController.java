@@ -4,6 +4,7 @@ import Connection.DBConnect;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -35,6 +36,20 @@ public class TaskDisplayController {
     private TableColumn<Task, String> statusCol;
     @FXML
     private TableColumn<Task, String> descCol;
+    @FXML
+    private Label totalTasksLabel;
+    @FXML
+    private Label completedTasksLabel;
+    @FXML
+    private Label missedTasksLabel;
+    @FXML
+    private Label ongoingTasksLabel;
+
+    private int totaltask = 0;
+    private int completedTask = 0;
+    private int missedTask = 0;
+    private int onGoingTask = 0;
+
 
     ObservableList<Task> TaskList = FXCollections.observableArrayList(); // List to store data from database
 
@@ -54,6 +69,12 @@ public class TaskDisplayController {
 
             refreshList();
             taskTableView.setItems(TaskList); // Set items only once after population
+
+            totalTasksLabel.setText(String.valueOf(totaltask));
+            completedTasksLabel.setText(String.valueOf(completedTask));
+            missedTasksLabel.setText(String.valueOf(missedTask));
+            ongoingTasksLabel.setText(String.valueOf(onGoingTask));
+
         }
 
         private void refreshList() throws SQLException {
@@ -65,15 +86,26 @@ public class TaskDisplayController {
                 query = "SELECT * FROM `Tasklist`";
                 preparedStatement = connection.prepareStatement(query);
                 resultSet = preparedStatement.executeQuery();
-                    while (resultSet.next()) {
-                        TaskList.add(new Task(
-                                resultSet.getInt("TaskID"),
-                                resultSet.getString("TaskName"),
-                                resultSet.getString("TaskDescription"),
-                                resultSet.getDate("StartDate").toLocalDate(),
-                                resultSet.getDate("EndDate").toLocalDate(),
-                                resultSet.getString("TaskStatus")));
-                        taskTableView.setItems(TaskList);
+                while (resultSet.next()) {
+                    totaltask++;
+                    TaskList.add(new Task(
+                            resultSet.getInt("TaskID"),
+                            resultSet.getString("TaskName"),
+                            resultSet.getString("TaskDescription"),
+                            resultSet.getDate("StartDate").toLocalDate(),
+                            resultSet.getDate("EndDate").toLocalDate(),
+                            resultSet.getString("TaskStatus")));
+                    taskTableView.setItems(TaskList);
+                    String currentstatus = resultSet.getString("TaskStatus");
+                    //System.out.println(currentstatus); //check currentstatus catches TaskStatus values
+                    if (currentstatus.equals("Completed")) { // Use equals() for string comparison
+                        completedTask++;
+                    } else if (currentstatus.equals("Missed")) {
+                        missedTask++;
+                    } else {
+                        onGoingTask++;
+                    }
+
 
 
 
