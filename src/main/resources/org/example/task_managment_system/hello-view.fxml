@@ -2,52 +2,64 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="943.0" style="-fx-background-color: #7549B1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.Controller">
   <children>
-    <Pane prefHeight="618.0" prefWidth="267.0" style="-fx-background-color: #461D7C;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="676.0" AnchorPane.topAnchor="0.0">
+    <Pane prefHeight="618.0" prefWidth="311.0" style="-fx-background-color: #461D7C;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="632.0" AnchorPane.topAnchor="0.0">
       <children>
-        <Label layoutX="28.0" layoutY="38.0" prefHeight="121.0" prefWidth="215.0" text="Welcome " textFill="WHITE">
-          <font>
-            <Font size="48.0" />
-          </font>
-        </Label>
-        <Label layoutX="31.0" layoutY="351.0" text="Manage your task easily" textFill="WHITE">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
-            <Label layoutX="33.0" layoutY="91.0" prefHeight="140.0" prefWidth="86.0" text="to" textFill="WHITE">
+            <Pane layoutX="37.0" layoutY="254.0" prefHeight="343.0" prefWidth="233.0">
+               <children>
+                  <TableView layoutY="-3.0" prefHeight="345.0" prefWidth="233.0">
+                    <columns>
+                      <TableColumn prefWidth="113.18265914916992" text="C2" />
+                        <TableColumn prefWidth="118.50001525878906" text="C2" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <Label fx:id="currentTime" alignment="CENTER" layoutX="41.0" layoutY="39.0" prefHeight="94.0" prefWidth="224.0" text="00:00" textFill="WHITE">
                <font>
-                  <Font size="36.0" />
+                  <Font name="System Bold" size="74.0" />
                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="153.0" prefHeight="181.0" prefWidth="265.0" text=" ToDO" textFill="WHITE">
+            <Label fx:id="currentDate" alignment="CENTER" layoutX="4.0" layoutY="123.0" prefHeight="35.0" prefWidth="300.0" text="24 September, Wednesday" textFill="WHITE">
                <font>
-                  <Font size="48.0" />
+                  <Font name="System Bold" size="23.0" />
                </font>
             </Label>
       </children>
     </Pane>
-      <Button fx:id="btnDashboard" layoutX="400.0" layoutY="149.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="158.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="Task Overview">
+      <Button fx:id="btnDashboard" layoutX="450.0" layoutY="266.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="158.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="Task Overview">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="btnStudents" layoutX="595.0" layoutY="149.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="158.0" style="-fx-background-color: #D7B8E6#D7B8E6; -fx-background-radius: 2em;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="Task Details">
+      <Button fx:id="btnStudents" layoutX="645.0" layoutY="266.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="158.0" style="-fx-background-color: #D7B8E6#D7B8E6; -fx-background-radius: 2em;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="Task Details">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="btnTasks" layoutX="398.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="161.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="Task">
+      <Button fx:id="btnTasks" layoutX="448.0" layoutY="425.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="161.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="Task">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="btnSettings" layoutX="594.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="159.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="Exit">
+      <Button fx:id="btnSettings" layoutX="644.0" layoutY="426.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="159.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/fullpackstyling.css" text="Exit">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
+      <Label layoutX="453.0" layoutY="41.0" prefHeight="181.0" prefWidth="316.0" text="Task Manager" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="458.0" layoutY="99.0" prefHeight="140.0" prefWidth="125.0" text="System" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
   </children>
 </AnchorPane>
