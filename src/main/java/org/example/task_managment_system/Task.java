@@ -31,23 +31,17 @@ public class Task implements Serializable {
 
         }
 
-        public int getID() {
-            return TaskID;
-         }
-        public String getName() {
-            return name;
-        }
+        public int getID() {return TaskID;}
+        public String getName() {return name;}
 
-        public String getDescription() {
-            return description;
-        }
+        public String getDescription() {return description;}
 
-        public LocalDate getStartDate() {
-            return startDate;
-        }
+        public LocalDate getStartDate() {return startDate;}
 
-        public LocalDate getEndDate() {
-            return endDate;
+        public LocalDate getEndDate() {return endDate;}
+
+        public String getStatusTask(){
+            return StatusTask;
         }
 
         /*
@@ -130,7 +124,7 @@ public class Task implements Serializable {
             statusString = "";  // Handle any other potential cases
         }
 
-        return statusString + "  " + getName() + " - " + (startDate.equals(endDate) ? startDate.toString() : startDate + " to " + endDate);
+        return "[" + getStatusTask() + "]" + " " + getName() + " - " + (startDate.equals(endDate) ? startDate.toString() : startDate + " to " + endDate);
     }
 
 

@@ -47,6 +47,7 @@ public class TaskMakerController {
     private ObservableList<Task> tasks;
     String query = null;
     Connection connection;
+    private Task task;
 
 
     public TaskMakerController() {
@@ -208,23 +209,23 @@ public class TaskMakerController {
 
     }
 
-    private void clearAll() {
+    private void clearAll() throws SQLException {
         taskInput.clear();
         taskDiscription.clear();
         startDate.setValue(null);
         endDate.setValue(null);
 
         // Update event list with new task
-        eventList.refresh();
+        eventList.setItems(refreshList());
     }
 
-    public void deleteTask(ActionEvent event) {
+    public void deleteTask(ActionEvent event) throws SQLException {
         Task selectedTask = eventList.getSelectionModel().getSelectedItem();
         if (selectedTask != null) {
-            tasks.remove(selectedTask);
-            eventList.refresh();
+            DeletefromDB(selectedTask.getID());
+            eventList.setItems(refreshList());
             //updateTaskCounts();
-            saveTasksToFile();
+
         } else {
             // Display error message within the GUI
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -236,27 +237,22 @@ public class TaskMakerController {
     }
 
 
-    private void saveTasksToFile() {
-        try {
-            String userHome = System.getProperty("user.home");
-            File tasksFile = new File(userHome, "task-manager/tasks.dat");
-            tasksFile.getParentFile().mkdirs(); // Create directories if they don't exist
-            FileOutputStream fileOutputStream = new FileOutputStream(tasksFile);
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            ArrayList<Task> serializableTasks = new ArrayList<>(tasks);
-            objectOutputStream.writeObject(serializableTasks);
-            objectOutputStream.close();
-            fileOutputStream.close();
-        } catch (IOException e) {
-            System.out.println("Error writing tasks to file: " + e.getMessage());
+    private void DeletefromDB(int taskId) {
+
+        String sql = "DELETE FROM Tasklist WHERE TaskID = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, taskId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error deleting file: " + e.getMessage());
         }
     }
 
-    public void markTaskComplete(ActionEvent event) {
+    public void markTaskComplete(ActionEvent event) throws SQLException {
         Task selectedTask = eventList.getSelectionModel().getSelectedItem();
         if (selectedTask != null) {
-            selectedTask.setCompleted(true); // Mark the task as completed
-            eventList.refresh(); // Update the list view
+            markComplete(selectedTask.getID());
+            eventList.setItems(refreshList());
         } else {
             // Display error message using an Alert
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -266,12 +262,22 @@ public class TaskMakerController {
         }
     }
 
-    public void uncompleteTask(ActionEvent event) {
+    private void markComplete(int taskId){
+        String sql = "UPDATE `Tasklist` SET `TaskStatus`= ? WHERE TaskID = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, "Completed");
+            preparedStatement.setInt(2, taskId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void uncompleteTask(ActionEvent event) throws SQLException {
         Task selectedTask = eventList.getSelectionModel().getSelectedItem();
         if (selectedTask != null) {
-            selectedTask.setCompleted(false); // Mark the task as uncompleted
-            selectedTask.updateTaskStatus();
-            eventList.refresh(); // Update the list view
+            markIncomplete(selectedTask.getID()); // Mark the task as uncompleted
+            eventList.setItems(refreshList());
         } else {
             // Display error message using an Alert
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -280,6 +286,17 @@ public class TaskMakerController {
             alert.showAndWait();
         }
     }//Please select a task to mark uncomplete.
+
+    private void markIncomplete(int taskId){
+        String sql = "UPDATE `Tasklist` SET `TaskStatus`= ? WHERE TaskID = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, "Ongoing");
+            preparedStatement.setInt(2, taskId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     public void editTask(ActionEvent event) {
