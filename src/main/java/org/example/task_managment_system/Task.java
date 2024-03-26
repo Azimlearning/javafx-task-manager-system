@@ -31,7 +31,10 @@ public class Task implements Serializable {
 
         }
 
-        public int getID() {return TaskID;}
+        public Integer getID() {return TaskID;}
+
+        public int getTaskID() {return TaskID;}
+
         public String getName() {return name;}
 
         public String getDescription() {return description;}
