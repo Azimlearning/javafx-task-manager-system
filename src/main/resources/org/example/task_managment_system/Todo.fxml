@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.todoController">
+   <children>
+      <Pane prefHeight="145.0" prefWidth="798.0" style="-fx-background-color: #461D7C;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane layoutX="25.0" layoutY="8.0" prefHeight="130.0" prefWidth="360.0">
+               <children>
+                  <Label fx:id="currentDate" alignment="CENTER" layoutX="9.0" layoutY="7.0" prefHeight="39.0" prefWidth="342.0" text="24 September, Wednesday" textFill="#fffdfd">
+                     <font>
+                        <Font name="Baloo Thambi 2 ExtraBold" size="26.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="currentTime" alignment="TOP_CENTER" layoutX="-23.0" layoutY="52.0" prefHeight="85.0" prefWidth="409.0" text="00:00" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni 72 Bold" size="58.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <AnchorPane layoutY="145.0" prefHeight="421.0" prefWidth="409.0" style="-fx-background-color: #D7B8E6#D7B8E6;">
+         <children>
+            <Label layoutX="163.0" layoutY="-2.0" prefHeight="33.0" prefWidth="83.0" text="Todays Task">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="taskTableView" layoutY="25.0" prefHeight="391.0" prefWidth="409.0">
+              <columns>
+                <TableColumn fx:id="nameCol" prefWidth="139.0" text="Task" />
+                  <TableColumn fx:id="descCol" minWidth="0.0" prefWidth="269.0" text="Discription " />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+
+
+
+   </children>
+</AnchorPane>

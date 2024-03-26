@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" style="-fx-background-color: #7549B1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.DashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="944.0" style="-fx-background-color: #7549B1;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.DashboardController">
    <children>
       <Pane layoutY="-2.0" prefHeight="139.0" prefWidth="950.0" style="-fx-background-color: #461D7C;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-6.0" AnchorPane.topAnchor="-2.0">
          <children>
             <Label layoutY="30.0" prefHeight="70.0" prefWidth="950.0" text="    Manage Your Unfinished  Task" textFill="WHITE">
                <font>
-                  <Font size="48.0" />
+                  <Font name="Berlin Sans FB Demi Bold" size="48.0" />
                </font>
             </Label>
             <Label layoutX="56.0" layoutY="91.0" text="Task managment system " textFill="WHITE">
@@ -39,7 +32,7 @@
             <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Pane prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: #00838F; -fx-background-radius: 1em;">
+            <Pane prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: #ECC6FF; -fx-background-radius: 1em;">
                <children>
                   <Label alignment="CENTER" layoutX="74.0" layoutY="69.0" text="Total Task" textFill="WHITE">
                      <font>
@@ -53,7 +46,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: FDD023; -fx-background-radius: 1em;" GridPane.columnIndex="1">
+            <Pane prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: #ECC6FF; -fx-background-radius: 1em;" GridPane.columnIndex="1">
                <children>
                   <Label layoutX="54.0" layoutY="69.0" text="Completed Task" textFill="WHITE">
                      <font>
@@ -67,7 +60,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: #5CB55B; -fx-background-radius: 1em;" GridPane.columnIndex="2">
+            <Pane prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: #ECC6FF; -fx-background-radius: 1em;" GridPane.columnIndex="2">
                <children>
                   <Label layoutX="54.0" layoutY="69.0" text="On Going Task" textFill="WHITE">
                      <font>
@@ -81,7 +74,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: #D7534E; -fx-background-radius: 1em;" GridPane.columnIndex="3">
+            <Pane prefHeight="103.0" prefWidth="200.0" style="-fx-background-color: #ECC6FF; -fx-background-radius: 1em;" GridPane.columnIndex="3">
                <children>
                   <Label layoutX="63.0" layoutY="69.0" text="Missed Tasks" textFill="WHITE">
                      <font>

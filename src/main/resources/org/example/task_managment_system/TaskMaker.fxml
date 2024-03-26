@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Blend?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.TaskMakerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="797.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.TaskMakerController">
    <children>
-      <Pane layoutY="18.0" prefHeight="140.0" prefWidth="798.0" style="-fx-background-color: #461D7C;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="145.0" prefWidth="798.0" style="-fx-background-color: #461D7C;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane layoutX="2.0" layoutY="143.0" prefHeight="415.0" prefWidth="404.0" style="-fx-background-color: #7549B1;">
+            <AnchorPane layoutX="-3.0" layoutY="143.0" prefHeight="421.0" prefWidth="415.0" style="-fx-background-color: #7549B1;">
                <children>
                   <DatePicker fx:id="endDate" layoutX="171.0" layoutY="51.0" prefHeight="25.0" prefWidth="140.0" promptText="End Date" />
                   <Button fx:id="enterTask" layoutX="322.0" layoutY="51.0" mnemonicParsing="false" onAction="#enterTask" prefHeight="25.0" prefWidth="53.0" style="-fx-background-radius: 1em; -fx-background-color: #ECC6FF;" text="Enter">
@@ -66,7 +60,7 @@
             </AnchorPane>
             <Label layoutX="15.0" layoutY="14.0" prefHeight="104.0" prefWidth="588.0" text="EDIT YOUR TASK" textFill="WHITE">
                <font>
-                  <Font name="Baloo Thambi 2 ExtraBold" size="72.0" />
+                  <Font name="Berlin Sans FB Demi Bold" size="48.0" />
                </font>
             </Label>
             <Label layoutX="17.0" layoutY="102.0" text="  Task Management System" textFill="WHITE">
@@ -83,7 +77,7 @@
       </Pane>
       <DatePicker fx:id="startDate" layoutX="20.0" layoutY="193.0" prefHeight="25.0" prefWidth="149.0" promptText="Start Date" />
       <TextArea fx:id="taskDiscription" layoutX="19.0" layoutY="225.0" prefHeight="120.0" prefWidth="360.0" promptText="Task/Event Description (Optional)" wrapText="true" />
-      <AnchorPane layoutX="408.0" layoutY="143.0" prefHeight="415.0" prefWidth="385.0" style="-fx-background-color: #D7B8E6#D7B8E6;">
+      <AnchorPane layoutX="408.0" layoutY="143.0" prefHeight="421.0" prefWidth="390.0" style="-fx-background-color: #D7B8E6#D7B8E6;">
          <children>
             <ListView fx:id="eventList" layoutX="12.0" layoutY="15.0" prefHeight="380.0" prefWidth="361.0">
                <effect>

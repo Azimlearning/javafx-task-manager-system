@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="exitScreen" alignment="CENTER" prefHeight="93.0" prefWidth="211.0" spacing="10" style="-fx-background-color: #ECC6FF;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.ExitController">
+    <Label text="Are you sure you want to exit?">
+      <font>
+         <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+      </font></Label>
+    <Button fx:id="confirmExitButton" onAction="#handleExit" prefHeight="32.0" prefWidth="53.0" style="-fx-background-color: #461D7C; -fx-background-radius: 5px;" text="Yes" textFill="#ecc6ff">
+      <font>
+         <Font name="System Bold" size="15.0" />
+      </font></Button>
+</VBox>

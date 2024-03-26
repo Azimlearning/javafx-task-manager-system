@@ -67,7 +67,7 @@ public class DashboardController { // Implement Initializable
         //idCol.setCellValueFactory(new PropertyValueFactory<>("TaskID"));
         statusCol.setCellValueFactory(new PropertyValueFactory<>("StatusTask"));
         endCol.setCellValueFactory(new PropertyValueFactory<>("EndDate"));
-        //nameCol.setCellValueFactory(new PropertyValueFactory<>("TaskName"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("TaskName"));
 
         refreshList();
 

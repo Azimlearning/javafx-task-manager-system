@@ -47,14 +47,12 @@ public class Controller{ //implements Initializable
     @FXML
     public Button btnStudents;
 
-    @FXML
-    public Button btn_Timetable;
 
     @FXML
-    public Button btnSettings;
+    public Button btnTodo;
 
     @FXML
-    public Button btnUpdate;
+    public Button btnExit;
 
     @FXML
     public Button btnTasks;
@@ -81,6 +79,10 @@ public class Controller{ //implements Initializable
             loadStage("task_display.fxml");
         } else if (mouseEvent.getSource() == btnTasks) {
             loadStage("TaskMaker.fxml");
+        } else if (mouseEvent.getSource() == btnExit) {
+            loadStage("exit.fxml");
+        } else if (mouseEvent.getSource() == btnTodo) {
+            loadStage("Todo.fxml");
         }
     }//Dashboard.fxml
 
@@ -182,6 +184,15 @@ public class Controller{ //implements Initializable
         }
     }
 
-
+    public void showExitScreen() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ExitScreen.fxml"));
+            Stage exitStage = new Stage();
+            exitStage.setScene(new Scene(root));
+            exitStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 

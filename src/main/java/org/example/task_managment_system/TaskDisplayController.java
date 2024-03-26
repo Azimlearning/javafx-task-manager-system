@@ -59,7 +59,7 @@ public class TaskDisplayController {
         public void initialize() throws SQLException {
             connection = DBConnect.getConnect();
             // Set cell value factories once
-            //idCol.setCellValueFactory(new PropertyValueFactory<>("TaskID"));
+            idCol.setCellValueFactory(new PropertyValueFactory<>("TaskID"));
              //nameCol.setCellValueFactory(new PropertyValueFactory<>("TaskName"));
             //startCol.setCellValueFactory(new PropertyValueFactory<>("StartDate"));
             //endCol.setCellValueFactory(new PropertyValueFactory<>("EndDate"));
