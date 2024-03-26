@@ -15,7 +15,7 @@
             <Font size="48.0" />
           </font>
         </Label>
-        <Label layoutX="31.0" layoutY="363.0" text="Manage your task easily" textFill="WHITE">
+        <Label layoutX="31.0" layoutY="351.0" text="Manage your task easily" textFill="WHITE">
           <font>
             <Font size="18.0" />
           </font>
