@@ -15,58 +15,77 @@
    <children>
       <Pane layoutY="18.0" prefHeight="140.0" prefWidth="798.0" style="-fx-background-color: #461D7C;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="73.0" layoutY="30.0" text="TASK" textFill="WHITE">
-               <font>
-                  <Font size="48.0" />
-               </font>
-            </Label>
-            <Label layoutX="79.0" layoutY="91.0" text="Task Management" textFill="WHITE">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
             <AnchorPane layoutX="2.0" layoutY="143.0" prefHeight="415.0" prefWidth="404.0" style="-fx-background-color: #7549B1;">
                <children>
                   <DatePicker fx:id="endDate" layoutX="171.0" layoutY="51.0" prefHeight="25.0" prefWidth="140.0" promptText="End Date" />
-                  <Button fx:id="enterTask" layoutX="320.0" layoutY="50.0" mnemonicParsing="false" onAction="#enterTask" prefHeight="28.0" prefWidth="53.0" style="-fx-background-radius: 1em; -fx-background-color: #ECC6FF;" text="Enter">
+                  <Button fx:id="enterTask" layoutX="322.0" layoutY="51.0" mnemonicParsing="false" onAction="#enterTask" prefHeight="25.0" prefWidth="53.0" style="-fx-background-radius: 1em; -fx-background-color: #ECC6FF;" text="Enter">
                      <font>
-                        <Font size="11.0" />
+                        <Font name="Baloo Thambi 2 SemiBold" size="10.0" />
                      </font>
                   </Button>
-                  <Button fx:id="editTaskButton" layoutX="17.0" layoutY="205.0" mnemonicParsing="false" onAction="#editTask" prefHeight="44.0" prefWidth="63.0" style="-fx-background-radius: 1em; -fx-background-color: #ABADCE;" text="Edit Task">
+                  <Button fx:id="editTaskButton" layoutX="19.0" layoutY="213.0" mnemonicParsing="false" onAction="#editTask" prefHeight="35.0" prefWidth="55.0" style="-fx-background-radius: 1em; -fx-background-color: #ECC6FF #ECC6FF;" text="Edit Task">
                      <font>
-                        <Font size="11.0" />
+                        <Font name="Baloo Thambi 2 SemiBold" size="10.0" />
                      </font>
                   </Button>
-                  <Button fx:id="uncompleteTaskButton" layoutX="158.0" layoutY="206.0" mnemonicParsing="false" onAction="#uncompleteTask" prefHeight="42.0" prefWidth="102.0" style="-fx-background-color: #ABADCE; -fx-background-radius: 1em;" text="Uncomplete Task">
+                  <Button fx:id="uncompleteTaskButton" layoutX="145.0" layoutY="212.0" mnemonicParsing="false" onAction="#uncompleteTask" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #ECC6FF; -fx-background-radius: 1em;" text="Uncomplete Task">
                      <font>
-                        <Font size="11.0" />
+                        <Font name="Baloo Thambi 2 SemiBold" size="10.0" />
                      </font>
                   </Button>
-                  <Button fx:id="deleteButton" layoutX="87.0" layoutY="205.0" mnemonicParsing="false" onAction="#deleteTask" prefHeight="44.0" prefWidth="60.0" style="-fx-background-color: F9626C; -fx-background-radius: 1em;" text="Delete">
+                  <Button fx:id="deleteButton" layoutX="82.0" layoutY="213.0" mnemonicParsing="false" onAction="#deleteTask" prefHeight="35.0" prefWidth="55.0" style="-fx-background-color: #ECC6FF; -fx-background-radius: 1em;" text="Delete">
                      <font>
-                        <Font name="System Italic" size="11.0" />
+                        <Font name="Baloo Thambi 2 SemiBold" size="10.0" />
                      </font>
                   </Button>
-                  <Button fx:id="markCompleteButton" layoutX="270.0" layoutY="205.0" mnemonicParsing="false" onAction="#markTaskComplete" prefHeight="42.0" prefWidth="101.0" style="-fx-background-color: #ABADCE; -fx-background-radius: 1em;" text="Mark Complete">
+                  <Button fx:id="markCompleteButton" layoutX="265.0" layoutY="212.0" mnemonicParsing="false" onAction="#markTaskComplete" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #ECC6FF; -fx-background-radius: 1em;" text="Mark Complete">
                      <font>
-                        <Font size="11.0" />
+                        <Font name="Baloo Tamma 2 SemiBold" size="10.0" />
                      </font>
                   </Button>
+                  <Pane layoutX="17.0" layoutY="265.0" prefHeight="130.0" prefWidth="360.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="7.0" layoutY="6.0" prefHeight="39.0" prefWidth="342.0" text="24 September, Wednesday">
+                           <font>
+                              <Font name="Baloo Thambi 2 ExtraBold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_CENTER" layoutX="-1.0" layoutY="52.0" prefHeight="81.0" prefWidth="362.0" text="00:00">
+                           <font>
+                              <Font name="Bodoni 72 Bold" size="58.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label alignment="TOP_CENTER" layoutX="20.0" layoutY="77.0" prefHeight="59.0" prefWidth="335.0" text="00:00">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
+            <Label layoutX="15.0" layoutY="14.0" prefHeight="104.0" prefWidth="588.0" text="EDIT YOUR TASK" textFill="WHITE">
+               <font>
+                  <Font name="Baloo Thambi 2 ExtraBold" size="72.0" />
+               </font>
+            </Label>
+            <Label layoutX="17.0" layoutY="102.0" text="  Task Management System" textFill="WHITE">
+               <font>
+                  <Font name="Baloo Thambi 2 SemiBold" size="13.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Pane layoutX="20.0" layoutY="159.0" prefHeight="33.0" prefWidth="322.0">
          <children>
-            <TextField fx:id="taskInput" alignment="CENTER" prefHeight="28.0" prefWidth="354.0" promptText="Enter Task or Event" style="-fx-border-color: #2D75E8;" />
+            <TextField fx:id="taskInput" alignment="CENTER" prefHeight="28.0" prefWidth="360.0" promptText="Enter Task or Event" style="-fx-border-color: #2D75E8;" />
          </children>
       </Pane>
       <DatePicker fx:id="startDate" layoutX="20.0" layoutY="193.0" prefHeight="25.0" prefWidth="149.0" promptText="Start Date" />
-      <TextArea fx:id="taskDiscription" layoutX="19.0" layoutY="225.0" prefHeight="114.0" prefWidth="357.0" promptText="Task/Event Description (Optional)" wrapText="true" />
-      <AnchorPane layoutX="410.0" layoutY="142.0" prefHeight="409.0" prefWidth="380.0" style="-fx-background-color: #D7B8E6#D7B8E6;">
+      <TextArea fx:id="taskDiscription" layoutX="19.0" layoutY="225.0" prefHeight="120.0" prefWidth="360.0" promptText="Task/Event Description (Optional)" wrapText="true" />
+      <AnchorPane layoutX="408.0" layoutY="143.0" prefHeight="415.0" prefWidth="385.0" style="-fx-background-color: #D7B8E6#D7B8E6;">
          <children>
-            <ListView fx:id="eventList" layoutX="12.0" layoutY="15.0" prefHeight="380.0" prefWidth="357.0">
+            <ListView fx:id="eventList" layoutX="12.0" layoutY="15.0" prefHeight="380.0" prefWidth="361.0">
                <effect>
                   <Blend />
                </effect></ListView>
