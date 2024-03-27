@@ -117,6 +117,8 @@ public class Controller{ //implements Initializable
 
     public void loadStage(String fxml) {
         try {
+            //scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+
             Parent root = FXMLLoader.load(getClass().getResource(fxml));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));

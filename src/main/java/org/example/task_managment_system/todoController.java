@@ -90,7 +90,7 @@ public class todoController {
                 //System.out.println(currentstatus); //check currentstatus catches TaskStatus values
 
                 currentday = resultSet.getString("StartDate");
-                //System.out.println(currentday);
+                System.out.println(currentday);
 
 
 

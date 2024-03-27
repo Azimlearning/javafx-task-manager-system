@@ -10,31 +10,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="943.0" style="-fx-background-color: #7549B1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.Controller">
   <children>
-    <Pane prefHeight="618.0" prefWidth="311.0" style="-fx-background-color: #461D7C;" styleClass="inner_pane" stylesheets="@../../../../css/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="632.0" AnchorPane.topAnchor="0.0">
-      <children>
-            <Pane layoutX="37.0" layoutY="254.0" prefHeight="343.0" prefWidth="233.0">
-               <children>
-                  <TableView fx:id="taskTableView" layoutY="-3.0" prefHeight="345.0" prefWidth="233.0">
-                    <columns>
-                      <TableColumn fx:id="nameCol" prefWidth="113.18265914916992" text="Task" />
-                        <TableColumn fx:id="endCol" prefWidth="118.50001525878906" text="End Date" />
-                    </columns>
-                  </TableView>
-               </children>
-            </Pane>
-            <Label fx:id="currentTime" alignment="CENTER" layoutX="42.0" layoutY="76.0" prefHeight="94.0" prefWidth="224.0" textFill="WHITE">
+      <Pane layoutX="324.0" layoutY="24.0" prefHeight="190.0" prefWidth="605.0" style="-fx-background-color: #461D7C;">
+         <children>
+            <Label alignment="CENTER" layoutY="10.0" prefHeight="200.0" prefWidth="630.0" stylesheets="@../../../../css/style.css" text="Task Manager System" textFill="WHITE">
                <font>
-                  <Font name="Bodoni 72 Bold" size="74.0" />
+                  <Font name="Berlin Sans FB" size="56.0" />
                </font>
             </Label>
-            <Label fx:id="currentDate" alignment="CENTER" layoutX="4.0" layoutY="41.0" prefHeight="35.0" prefWidth="300.0" textFill="WHITE">
-               <font>
-                  <Font name="Baloo Tamma 2 SemiBold" size="23.0" />
-               </font>
-            </Label>
-      </children>
-    </Pane>
-      <Pane layoutX="436.0" layoutY="243.0" prefHeight="320.0" prefWidth="380.0" style="-fx-border-color: black; -fx-background-color: #461D7C; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-width: 2px;">
+         </children>
+      </Pane>
+      <Pane layoutX="441.0" layoutY="296.0" prefHeight="308.0" prefWidth="490.0" style="-fx-border-color: black; -fx-background-color: #461D7C; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-width: 2px;">
          <children>
             <Button fx:id="btnDashboard" layoutX="208.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="158.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/style.css" text="TRACKER">
                <font>
@@ -63,10 +48,30 @@
             </Button>
          </children>
       </Pane>
-      <Label alignment="CENTER" layoutX="311.0" layoutY="30.0" prefHeight="200.0" prefWidth="630.0" stylesheets="@../../../../css/style.css" text="Task Manager System" textFill="WHITE">
-         <font>
-            <Font name="Berlin Sans FB" size="56.0" />
-         </font>
-      </Label>
+      <Pane layoutX="14.0" layoutY="24.0" prefHeight="190.0" prefWidth="300.0" style="-fx-background-color: #461D7C;">
+         <children>
+            <Label fx:id="currentTime" alignment="CENTER" layoutX="38.0" layoutY="68.0" prefHeight="94.0" prefWidth="224.0" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni 72 Bold" size="74.0" />
+               </font>
+            </Label>
+            <Label fx:id="currentDate" alignment="CENTER" layoutY="33.0" prefHeight="35.0" prefWidth="300.0" textFill="WHITE">
+               <font>
+                  <Font name="Baloo Tamma 2 SemiBold" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="222.0" prefHeight="382.0" prefWidth="418.0" style="-fx-background-color: #461D7C;">
+         <children>
+            <TableView fx:id="taskTableView" layoutX="9.0" layoutY="7.0" prefHeight="366.0" prefWidth="403.0">
+              <columns>
+                <TableColumn fx:id="nameCol" prefWidth="172.0" text="Task" />
+                  <TableColumn fx:id="endCol" prefWidth="230.0" text="End Date" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane layoutX="441.0" layoutY="222.0" prefHeight="66.0" prefWidth="490.0" style="-fx-background-color: #461D7C;" />
   </children>
 </AnchorPane>
