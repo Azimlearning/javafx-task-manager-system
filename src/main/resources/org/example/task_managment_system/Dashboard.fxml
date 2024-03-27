@@ -120,7 +120,7 @@
                   <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <PieChart fx:id="pieChart" prefHeight="287.0" prefWidth="278.0" style="-fx-background-color: #fff;" stylesheets="" />
+                  <PieChart fx:id="pieChart" prefHeight="287.0" prefWidth="278.0" style="-fx-background-color: #fff;" stylesheets="@../../../../css/style.css" />
                </children>
             </GridPane>
         </items>

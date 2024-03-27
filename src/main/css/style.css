@@ -76,14 +76,20 @@
 
 .chart-pie {
     -fx-border-color: derive(-fx-pie-color, 1%);
-    -fx-border-width: 0px;
+    -fx-border-width: 10px;
 }
 
 .inner_pane{
     -fx-background-color: #436850;
-    /*-fx-border-color: 436850:*/
+    -fx-border-color: 436850;
     -fx-border-width: 2px 2px 2px 2px;
     -fx-border-radius: 30px;
     -fx-background-radius: 20px;
     -fx-border-style: solid;
 }
+
+.inner_pane:hover
+{
+    -fx-background-color : #A1C1F4 ;
+}
+

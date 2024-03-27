@@ -4,6 +4,7 @@ import Connection.DBConnect;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.css.Stylesheet;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -119,7 +120,11 @@ public class Controller{ //implements Initializable
             Parent root = FXMLLoader.load(getClass().getResource(fxml));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            //String css = this.getClass().getResource("style.css").toExternalForm();
+            //Stylesheet stylesheet = new Stylesheet(css);
+            //stage.getStylesheets().add(css);
             stage.initModality(Modality.APPLICATION_MODAL);
+
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

@@ -47,6 +47,8 @@ public class todoController {
     @FXML
     private Label currentDate;
 
+    String currentday;
+
 
     ObservableList<Task> TaskList = FXCollections.observableArrayList();
 
@@ -55,11 +57,11 @@ public class todoController {
         connection = DBConnect.getConnect();
         // Set cell value factories once
         //idCol.setCellValueFactory(new PropertyValueFactory<>("TaskID"));
-        //nameCol.setCellValueFactory(new PropertyValueFactory<>("TaskName"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("TaskName"));
         //startCol.setCellValueFactory(new PropertyValueFactory<>("StartDate"));
         //endCol.setCellValueFactory(new PropertyValueFactory<>("EndDate"));
         //statusCol.setCellValueFactory(new PropertyValueFactory<>("StatusTask"));
-        //descCol.setCellValueFactory(new PropertyValueFactory<>("TaskDescription"));
+        descCol.setCellValueFactory(new PropertyValueFactory<>("TaskDescription"));
 
         refreshList();
         taskTableView.setItems(TaskList); // Set items only once after population
@@ -86,6 +88,9 @@ public class todoController {
                 taskTableView.setItems(TaskList);
                 String currentstatus = resultSet.getString("TaskStatus");
                 //System.out.println(currentstatus); //check currentstatus catches TaskStatus values
+
+                currentday = resultSet.getString("StartDate");
+                //System.out.println(currentday);
 
 
 

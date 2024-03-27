@@ -47,6 +47,15 @@ public class Task implements Serializable {
             return StatusTask;
         }
 
+    public String getTaskName() {
+        return name;
+    }
+
+    public String getTaskDescription() {
+        return description;
+    }
+
+
 
         /*
         @Override
