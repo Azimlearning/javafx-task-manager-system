@@ -1,77 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="943.0" style="-fx-background-color: #7549B1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.Controller">
-  <children>
-      <Pane layoutX="324.0" layoutY="24.0" prefHeight="190.0" prefWidth="605.0" style="-fx-background-color: #461D7C;">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="943.0" style="-fx-background-color: #7549B1;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.task_managment_system.Controller">
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+
+    <children>
+      <Pane fx:id="homepagecontainer" layoutX="349.0" layoutY="24.0" prefHeight="144.0" prefWidth="580.0" style="-fx-background-color: #461D7C; -fx-background-radius: 20px;">
          <children>
-            <Label alignment="CENTER" layoutY="10.0" prefHeight="200.0" prefWidth="630.0" stylesheets="@../../../../css/style.css" text="Task Manager System" textFill="WHITE">
+            <Label fx:id="homepagetitle" alignment="CENTER" layoutY="-35.0" prefHeight="203.0" prefWidth="580.0" stylesheets="@../../../../css/style.css" text="Task Manager System" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB" size="56.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="441.0" layoutY="296.0" prefHeight="308.0" prefWidth="490.0" style="-fx-border-color: black; -fx-background-color: #461D7C; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-width: 2px;">
+      <Pane layoutX="441.0" layoutY="296.0" prefHeight="308.0" prefWidth="490.0" style="-fx-background-color: #461D7C; -fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-width: 2px;" />
+      <Pane fx:id="homepagecontainer" layoutX="14.0" layoutY="24.0" prefHeight="190.0" prefWidth="326.0" style="-fx-background-color: #461D7C; -fx-background-radius: 20px;">
          <children>
-            <Button fx:id="btnDashboard" layoutX="208.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="158.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/style.css" text="TRACKER">
-               <font>
-                  <Font name="Baloo Tamma 2 SemiBold" size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnStudents" layoutX="15.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="158.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/style.css" text="OVERVIEW">
-               <font>
-                  <Font name="Baloo Tamma 2 SemiBold" size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnTasks" layoutX="14.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="136.0" prefWidth="161.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/style.css" text="EDIT">
-               <font>
-                  <Font name="Baloo Tamma 2 SemiBold" size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnTodo" layoutX="207.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="130.0" prefWidth="160.0" style="-fx-background-radius: 2em; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/style.css" text="TODO">
-               <font>
-                  <Font name="Baloo Tamma 2 SemiBold" size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnExit" layoutX="164.0" layoutY="137.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 25px; -fx-background-color: #D7B8E6#D7B8E6;" styleClass="inner_pane" stylesheets="@../../../../css/style.css" text="EXIT">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <Pane layoutX="14.0" layoutY="24.0" prefHeight="190.0" prefWidth="300.0" style="-fx-background-color: #461D7C;">
-         <children>
-            <Label fx:id="currentTime" alignment="CENTER" layoutX="38.0" layoutY="68.0" prefHeight="94.0" prefWidth="224.0" textFill="WHITE">
+            <Label fx:id="currentTime" alignment="CENTER" layoutX="4.0" layoutY="62.0" prefHeight="108.0" prefWidth="318.0" textFill="WHITE">
                <font>
                   <Font name="Bodoni 72 Bold" size="74.0" />
                </font>
             </Label>
-            <Label fx:id="currentDate" alignment="CENTER" layoutY="33.0" prefHeight="35.0" prefWidth="300.0" textFill="WHITE">
+            <Label fx:id="currentDate" alignment="CENTER" layoutX="13.0" layoutY="27.0" prefHeight="35.0" prefWidth="300.0" textFill="WHITE">
                <font>
                   <Font name="Baloo Tamma 2 SemiBold" size="23.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="222.0" prefHeight="382.0" prefWidth="418.0" style="-fx-background-color: #461D7C;">
+      <Pane layoutX="14.0" layoutY="222.0" prefHeight="382.0" prefWidth="418.0" style="-fx-background-color: #461D7C; -fx-background-radius: 20px;">
          <children>
-            <TableView fx:id="taskTableView" layoutX="9.0" layoutY="7.0" prefHeight="366.0" prefWidth="403.0">
+            <TableView id="task-table-view" fx:id="taskTableView" layoutX="21.0" layoutY="21.0" prefHeight="338.0" prefWidth="375.0" style="-fx-background-color: none;" stylesheets="@../../../../css/style.css">
               <columns>
-                <TableColumn fx:id="nameCol" prefWidth="172.0" text="Task" />
-                  <TableColumn fx:id="endCol" prefWidth="230.0" text="End Date" />
+                <TableColumn fx:id="nameCol" prefWidth="172.0" style="-fx-background-color: none;" text="Task" />
+                  <TableColumn fx:id="endCol" prefWidth="230.0" style="-fx-background-color: none;" text="End Date" />
               </columns>
             </TableView>
          </children>
       </Pane>
-      <Pane layoutX="441.0" layoutY="222.0" prefHeight="66.0" prefWidth="490.0" style="-fx-background-color: #461D7C;" />
+      <Pane layoutX="441.0" layoutY="174.0" prefHeight="114.0" prefWidth="490.0" style="-fx-background-color: #461D7C; -fx-background-radius: 20px;">
+         <children>
+            <ToolBar cache="true" layoutX="3.0" layoutY="7.0" prefHeight="100.0" prefWidth="484.0" style="-fx-background-color: none;">
+              <items>
+                  <Button fx:id="btnStudents" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 20; -fx-background-color: #D7B8E6#D7B8E6;" stylesheets="@../../../../css/style.css" text="OVERVIEW">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnDashboard" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 20; -fx-background-color: #D7B8E6#D7B8E6;" stylesheets="@../../../../css/style.css" text="TRACKER">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnTasks" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 20; -fx-background-color: #D7B8E6#D7B8E6;" stylesheets="@../../../../css/style.css" text="EDIT">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnTodo" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 20px; -fx-background-color: #D7B8E6#D7B8E6;" stylesheets="@../../../../css/style.css" text="TODO">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnTodo1" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 20px; -fx-background-color: #D7B8E6#D7B8E6;" text="TODO">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+              </items>
+            </ToolBar>
+         </children></Pane>
+      <Button fx:id="btnExit" layoutX="346.0" layoutY="173.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="41.0" prefWidth="86.0" style="-fx-background-radius: 20px; -fx-background-color: #461D7C;" stylesheets="@../../../../css/style.css" text="EXIT">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
   </children>
 </AnchorPane>
