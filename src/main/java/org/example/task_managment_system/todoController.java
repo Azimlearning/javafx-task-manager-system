@@ -18,6 +18,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -70,12 +71,15 @@ public class todoController {
 
     private void refreshList() throws SQLException {
         TaskList.clear(); // Clear existing data before refreshing
+        LocalDate today = LocalDate.now();
+        System.out.println(today);
 
         try {
             TaskList.clear();
 
-            query = "SELECT * FROM `Tasklist`";
+            query = "SELECT * FROM `Tasklist` WHERE StartDate = ?";
             preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setObject(1, today);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 TaskList.add(new Task(
@@ -85,7 +89,7 @@ public class todoController {
                         resultSet.getDate("StartDate").toLocalDate(),
                         resultSet.getDate("EndDate").toLocalDate(),
                         resultSet.getString("TaskStatus")));
-                taskTableView.setItems(TaskList);
+
                 String currentstatus = resultSet.getString("TaskStatus");
                 //System.out.println(currentstatus); //check currentstatus catches TaskStatus values
 
@@ -107,6 +111,7 @@ public class todoController {
                         // Create a Task object and add it to the list
                         TaskList.add(new Task(id, name, taskdesc, startdate, enddate, taskstatus));*/
             }
+            taskTableView.setItems(FXCollections.observableList(TaskList));
 
         } catch (SQLException e) {
             Logger.getLogger(TaskDisplayController.class.getName()).log(Level.SEVERE, null, e);

@@ -36,6 +36,7 @@ public class DashboardController { // Implement Initializable
 
     @FXML
     private TableColumn<Task, String> endCol;
+
     @FXML
     private TableColumn<Task, String> statusCol;
 

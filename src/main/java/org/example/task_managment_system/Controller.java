@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -71,6 +72,16 @@ public class Controller{ //implements Initializable
 
     @FXML
     private TableColumn<Task, String> endCol;
+
+
+
+    @FXML
+    private PieChart pieChart;
+
+    private int totaltask = 0;
+    private int completedTask = 0;
+    private int missedTask = 0;
+    private int onGoingTask = 0;
 
     @FXML
     public void handleButtonClicks(ActionEvent mouseEvent) {
@@ -134,6 +145,7 @@ public class Controller{ //implements Initializable
     }
     public void initialize() throws SQLException {
         timeNow();
+
         connection = DBConnect.getConnect();
         // Set cell value factories once
         //idCol.setCellValueFactory(new PropertyValueFactory<>("TaskID"));
@@ -145,6 +157,7 @@ public class Controller{ //implements Initializable
         // ... set other cell value factories
 
         refreshList();
+        loadChart();
         taskTableView.setItems(TaskList); // Set items only once after population
     }
 
@@ -158,6 +171,7 @@ public class Controller{ //implements Initializable
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                totaltask++;
                 TaskList.add(new Task(
                         resultSet.getInt("TaskID"),
                         resultSet.getString("TaskName"),
@@ -169,7 +183,14 @@ public class Controller{ //implements Initializable
                 String currentstatus = resultSet.getString("TaskStatus");
                 //System.out.println(currentstatus); //check currentstatus catches TaskStatus values
 
-
+                //String currentstatus = resultSet.getString("TaskStatus");
+                if (currentstatus.equals("Completed")) {
+                    completedTask++;
+                } else if (currentstatus.equals("Missed")) {
+                    missedTask++;
+                } else {
+                    onGoingTask++;
+                }
 
 
 
@@ -201,5 +222,18 @@ public class Controller{ //implements Initializable
             e.printStackTrace();
         }
     }
+
+    private void loadChart() {
+
+        pieChart.getData().clear(); // Clear existing chart data
+
+        PieChart.Data slice1 = new PieChart.Data("Missed (" + missedTask + ")", missedTask);
+        PieChart.Data slice2 = new PieChart.Data("OnGoing (" + onGoingTask + ")", onGoingTask);
+        PieChart.Data slice3 = new PieChart.Data("Completed (" + completedTask + ")", completedTask);
+
+        pieChart.getData().addAll(slice1, slice2, slice3); // Efficiently add all slices
+    }
 }
+
+
 
